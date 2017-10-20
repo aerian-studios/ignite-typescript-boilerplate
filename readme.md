@@ -17,7 +17,7 @@ Currently includes:
 
 ## Quick Start
 
-When you've installed the [Ignite CLI](https://github.com/infinitered/ignite), you can get started with this boilerplate like this (or you could once this is in NPM):
+When you've installed the [Ignite CLI](https://github.com/infinitered/ignite), you can get started with this boilerplate like this:
 
 ```
 ignite new MyLatestCreation --b ignite-typescript-boilerplate
@@ -51,8 +51,8 @@ run `react-native start` and `react-native run-ios` or `react-native run-android
 
 ## Coding style
 
-We use `tslint` to enforce coding style, with rules based on [Palantir's tslint-react]
-(https://github.com/palantir/tslint-react), with a few changes to accommodate some Ignite quirks. If you install a 
+We use `tslint` to enforce coding style, with rules based on [Palantir's tslint-react](https://github.com/palantir/tslint-react), 
+with a few changes to accommodate some Ignite quirks. If you install a 
 plugin, your editor can probably automatically fix problems. In VS Code, set `"tslint.autoFixOnSave": true` in your 
 workspace settings. You can run the linter from the command line. `npm run lint` runs the linter, while `npm run fixcode` tries to autofix problems.
 
