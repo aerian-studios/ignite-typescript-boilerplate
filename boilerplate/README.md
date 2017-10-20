@@ -1,6 +1,6 @@
 #  <%= props.name %>
 
-* Typescript React Native App Utilizing [Ignite](https://github.com/infinitered/ignite)
+* TypeScript React Native App Utilizing [Ignite](https://github.com/infinitered/ignite)
 
 ## :arrow_up: How to Setup
 

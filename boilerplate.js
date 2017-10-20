@@ -41,7 +41,7 @@ async function install (context) {
 
   const name = parameters.third
   const spinner = print
-    .spin(`using the Typescript boilerplate, based on the ${red('Infinite Red')} boilerplate v2`)
+    .spin(`using the TypeScript boilerplate, based on the ${red('Infinite Red')} boilerplate v2`)
     .succeed()
 
   // attempt to install React Native or die trying
