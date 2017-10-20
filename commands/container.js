@@ -35,7 +35,7 @@ module.exports = async function (context) {
   // and insert the container into the nav router
   if (config.navigation === 'react-navigation') {
     const containerName = name
-    const appNavFilePath = `${process.cwd()}/App/Navigation/AppNavigation.ts`
+    const appNavFilePath = `${process.cwd()}/App/Navigation/AppNavigation.tsx`
     const importToAdd = `import ${containerName} from "../Containers/${containerName}";`
     const routeToAdd = `  ${containerName}: { screen: ${containerName} },`
 
