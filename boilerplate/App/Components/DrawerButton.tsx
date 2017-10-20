@@ -1,8 +1,7 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import { Text, TouchableOpacity } from 'react-native'
-import styles from './Styles/DrawerButtonStyles'
-import ExamplesRegistry from '../Services/ExamplesRegistry'
+import * as React from "react";
+import { Text, TouchableOpacity } from "react-native";
+import ExamplesRegistry from "../Services/ExamplesRegistry";
+import styles from "./Styles/DrawerButtonStyles";
 
 // Note that this file (App/Components/DrawerButton) needs to be
 // imported in your app somewhere, otherwise your component won't be
@@ -10,26 +9,27 @@ import ExamplesRegistry from '../Services/ExamplesRegistry'
 
 // Ignore in coverage report
 /* istanbul ignore next */
-ExamplesRegistry.addComponentExample('Drawer Button', () =>
+ExamplesRegistry.addComponentExample("Drawer Button", () =>
+  (
   <DrawerButton
-    text='Example left drawer button'
-    onPress={() => window.alert('Your drawers are showing')}
-  />
-)
+    text="Example left drawer button"
+    // tslint:disable-next-line:jsx-no-lambda
+    onPress={() => window.alert("Your drawers are showing")}
+  />),
+);
 
-class DrawerButton extends Component {
-  static propTypes = {
-    text: PropTypes.string,
-    onPress: PropTypes.func
-  }
+interface Props {
+  onPress: () => void;
+  text: string;
+}
 
-  render () {
+export default class DrawerButton extends React.Component<Props, {}> {
+
+  public render() {
     return (
       <TouchableOpacity onPress={this.props.onPress}>
         <Text style={styles.text}>{this.props.text}</Text>
       </TouchableOpacity>
-    )
+    );
   }
 }
-
-export default DrawerButton

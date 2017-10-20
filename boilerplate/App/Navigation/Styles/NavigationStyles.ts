@@ -1,8 +1,8 @@
-import { StyleSheet } from 'react-native'
-import { Colors } from '../../Themes/'
+import { StyleSheet } from "react-native";
+import { Colors } from "../../Themes/index";
 
 export default StyleSheet.create({
   header: {
-    backgroundColor: Colors.backgroundColor
-  }
-})
+    backgroundColor: Colors.background,
+  },
+});

@@ -1,17 +1,17 @@
-import React from 'react'
-import { storiesOf } from '@storybook/react-native'
+import { storiesOf } from "@storybook/react-native";
+import * as React from "react";
 
-import FullButton from './FullButton'
+import FullButton from "./FullButton";
 
-storiesOf('FullButton')
-  .add('Default', () => (
+storiesOf("FullButton")
+  .add("Default", () => (
     <FullButton
-      text='A simple button'
+      text="A simple button"
     />
   ))
-  .add('Custom Style', () => (
+  .add("Custom Style", () => (
     <FullButton
-      text='Style Me Up!'
-      styles={{ backgroundColor: 'blue' }}
+      text="Style Me Up!"
+      styles={{ backgroundColor: "blue" }}
     />
-  ))
+  ));

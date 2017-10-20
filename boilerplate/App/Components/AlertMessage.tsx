@@ -1,33 +1,32 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import { View, Text } from 'react-native'
-import styles from './Styles/AlertMessageStyles'
+import * as React from "react";
+import { Text, View } from "react-native";
+import AlertMessageStyles from "./Styles/AlertMessageStyles";
 
-export default class AlertMessage extends Component {
-  static defaultProps = { show: true }
+interface Props {
+  icon?: string;
+  show?: boolean;
+  style?: any;
+  title?: string;
+}
 
-  static propTypes = {
-    title: PropTypes.string,
-    icon: PropTypes.string,
-    style: PropTypes.object,
-    show: PropTypes.bool
-  }
+export default class AlertMessage extends React.Component<Props, {}> {
+  public static defaultProps = { show: true };
 
-  render () {
-    let messageComponent = null
+  public render() {
+    const messageComponent = null;
     if (this.props.show) {
-      const { title } = this.props
+      const { title } = this.props;
       return (
         <View
-          style={[styles.container, this.props.style]}
+          style={[AlertMessageStyles.container, this.props.style]}
         >
-          <View style={styles.contentContainer}>
-            <Text allowFontScaling={false} style={styles.message}>{title && title.toUpperCase()}</Text>
+          <View style={AlertMessageStyles.contentContainer}>
+            <Text allowFontScaling={false} style={AlertMessageStyles.message}>{title && title.toUpperCase()}</Text>
           </View>
         </View>
-      )
+      );
     }
 
-    return messageComponent
+    return messageComponent;
   }
 }
