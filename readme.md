@@ -17,7 +17,7 @@ Currently includes:
 
 ## Quick Start
 
-When you've installed the [Ignite CLI](https://github.com/infinitered/ignite), you can get started with this boilerplate like this:
+When you've installed the [Ignite CLI](https://github.com/infinitered/ignite), you can get started with this boilerplate like this (or you could once this is in NPM):
 
 ```
 ignite new MyLatestCreation --b ignite-typescript-boilerplate
@@ -46,7 +46,8 @@ ignite new MyLatestCreation --b ignite-typescript-boilerplate --min
 React Native can't compile Typescript directly, so we add a transpilation step which compiles the .tsx files to 
 Javascript, ready for Babel. These are compiled to the `dist` directory. The easiest way to handle 
 this is to run `npm run watch` which watches the source files for changes and compiles them to the `dist` directory.
-You will need to run `npm run copyfiles` once to copy images and fixtures into the `dist` directory.
+You will need to run `npm run copyfiles` once to copy images and fixtures into the `dist` directory. You can then
+run `react-native start` and `react-native run-ios` or `react-native run-android` as usual.
 
 ## Coding style
 
@@ -99,7 +100,8 @@ Styling themes used throughout your app styles.
 Initialize and configure things here.
 
 * `AppConfig.ts` - simple React Native configuration here
-* `DebugConfig.js` - define how you want your debug environment to act
+* `DebugConfig.js` - define how you want your debug environment to act. This is a .js file. because that's what
+Ignite expects to find.
 * `ReactotronConfig.ts` - configures [Reactotron](https://github.com/infinitered/reactotron) in your project (Note: this [will be extracted](https://github.com/infinitered/ignite/issues/779) into a plugin in the future)
 * `ReduxPersist.ts` - configures Redux Persist (Note: this [will be extracted](https://github.com/infinitered/ignite/issues/780) into a plugin in the future)
 
@@ -137,11 +139,3 @@ Helpers for transforming data between API and your application and vice versa. A
 ### Tests
 
 This folder (located as a sibling to `App`) contains sample Jest snapshot and unit tests for your application.
-
-**Previous Boilerplates**
-
-* [2016 aka Ignite 1.0](https://github.com/infinitered/ignite-ir-boilerplate-2016)
-
-## Premium Support
-
-[Ignite CLI](https://infinite.red/ignite) and [Ignite IR Boilerplate](https://github.com/infinitered/ignite-ir-boilerplate), as open source projects, are free to use and always will be. [Infinite Red](https://infinite.red/) offers premium Ignite CLI support and general mobile app design/development services. Email us at [hello@infinite.red](mailto:hello@infinite.red) to get in touch with us for more details.
