@@ -52,6 +52,6 @@
     // "emitDecoratorMetadata": true,         /* Enables experimental support for emitting type metadata for decorators. */
   },
   "include": [
-    "index.tsx"
+    "index.ts"
   ]
 }

@@ -41,7 +41,7 @@ async function install (context) {
 
   const name = parameters.third
   const spinner = print
-    .spin(`using the ${red('Infinite Red')} boilerplate v2 (code name 'Andross')`)
+    .spin(`using the Typescript boilerplate, based on the ${red('Infinite Red')} boilerplate v2`)
     .succeed()
 
   // attempt to install React Native or die trying
@@ -54,19 +54,18 @@ async function install (context) {
   // remove the __tests__ directory and App.js that come with React Native
   filesystem.remove('__tests__')
   filesystem.remove('App.js')
-
   // copy our App, Tests & storybook directories
   spinner.text = '▸ copying files'
   spinner.start()
-  filesystem.copy(`${__dirname}/boilerplate/App`, `${process.cwd()}/App`, {
+  filesystem.copy(`${ignite.ignitePluginPath()}/boilerplate/App`, `${process.cwd()}/App`, {
     overwrite: true,
     matching: '!*.ejs'
   })
-  filesystem.copy(`${__dirname}/boilerplate/Tests`, `${process.cwd()}/Tests`, {
+  filesystem.copy(`${ignite.ignitePluginPath()}/boilerplate/Tests`, `${process.cwd()}/Tests`, {
     overwrite: true,
     matching: '!*.ejs'
   })
-  filesystem.copy(`${__dirname}/boilerplate/storybook`, `${process.cwd()}/storybook`, {
+  filesystem.copy(`${ignite.ignitePluginPath()}/boilerplate/storybook`, `${process.cwd()}/storybook`, {
     overwrite: true,
     matching: '!*.ejs'
   })
@@ -85,12 +84,15 @@ async function install (context) {
   // generate some templates
   spinner.text = '▸ generating files'
   const templates = [
-    { template: 'index.js.ejs', target: 'index.js' },
+    { template: 'index.ts.ejs', target: 'index.ts' },
+    { template: 'index.js', target: 'index.js' },
     { template: 'README.md', target: 'README.md' },
     { template: 'ignite.json.ejs', target: 'ignite/ignite.json' },
     { template: '.editorconfig', target: '.editorconfig' },
     { template: '.babelrc', target: '.babelrc' },
-    { template: 'Tests/Setup.js.ejs', target: 'Tests/Setup.js' },
+    { template: 'tsconfig.json', target: 'tsconfig.json' },
+    { template: 'tslint.json', target: 'tslint.json' },
+    { template: 'Tests/Setup.tsx.ejs', target: 'Tests/Setup.tsx' },
     { template: 'storybook/storybook.ejs', target: 'storybook/storybook.js' },
     { template: '.env.example', target: '.env.example' }
   ]
@@ -103,7 +105,7 @@ async function install (context) {
     i18n: answers['i18n']
   }
   await ignite.copyBatch(context, templates, templateProps, {
-    quiet: true,
+    quiet: false,
     directory: `${ignite.ignitePluginPath()}/boilerplate`
   })
 
@@ -115,7 +117,10 @@ async function install (context) {
   filesystem.append('.gitignore', '\n# Misc\n#')
   filesystem.append('.gitignore', '\n.env.example\n')
   filesystem.append('.gitignore', '.env\n')
-
+  filesystem.append('.gitignore', 'dist\n')
+  filesystem.append('.gitignore', '.jest\n')
+  
+  
   /**
    * Merge the package.json from our template into the one provided from react-native init.
    */
