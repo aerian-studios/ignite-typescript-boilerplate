@@ -1,25 +1,19 @@
-import React, { Component } from 'react'
-// import PropTypes from 'prop-types';
-import { View, Text } from 'react-native'
-import styles from './Styles/<%= props.name %>Style'
+import * as React from "react";
+import { Text, View } from "react-native";
+import styles from "./Styles/<%= props.name %>Style";
 
-export default class <%= props.name %> extends Component {
-  // // Prop type warnings
-  // static propTypes = {
-  //   someProperty: PropTypes.object,
-  //   someSetting: PropTypes.bool.isRequired,
-  // }
-  //
-  // // Defaults for props
-  // static defaultProps = {
-  //   someSetting: false
-  // }
+interface Props {
+  someProperty: string;
+  anotherProperty: boolean;
+}
 
-  render () {
+export default class <%= props.name %> extends React.Component<Props> {
+
+  public render() {
     return (
       <View style={styles.container}>
         <Text><%= props.name %> Component</Text>
       </View>
-    )
+    );
   }
 }
