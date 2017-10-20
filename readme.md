@@ -1,12 +1,11 @@
-# Ignite IR Boilerplate
+# Ignite Typescript Boilerplate
 
-[![Build Status](https://semaphoreci.com/api/v1/ir/ignite-ir-boilerplate/branches/master/badge.svg)](https://semaphoreci.com/ir/ignite-ir-boilerplate)
+This is an early-stage work in progress. Currently it will build and run the starter app, though there are 
+lots of missing typings.
 
+## The great feel of the IR boilerplate, now in Typescript
 
-
-## The latest and greatest boilerplate for Infinite Red opinions
-
-This is the boilerplate that [Infinite Red](https://infinite.red) uses as a way to test bleeding-edge changes to our React Native stack.
+An almost-direct port of the [Ignite IR Boilerplate](https://github.com/infinitered/ignite-ir-boilerplate) to Typescript
 
 Currently includes:
 
@@ -21,46 +20,60 @@ Currently includes:
 When you've installed the [Ignite CLI](https://github.com/infinitered/ignite), you can get started with this boilerplate like this:
 
 ```
-ignite new MyLatestCreation
+ignite new MyLatestCreation --b ignite-typescript-boilerplate
 ```
 
 You can also change the React Native version, just keep in mind, we may not have tested this just yet.
 
 ```sh
-ignite new MyLatestCreation --react-native-version 0.46.0-rc.2
+ignite new MyLatestCreation --b ignite-typescript-boilerplate --react-native-version 0.46.0-rc.2
 ```
 
 By default we'll ask you some questions during install as to which features you'd like.  If you just want them all, you can skip the questions:
 
 ```sh
-ignite new MyLatestCreation --max
+ignite new MyLatestCreation --b ignite-typescript-boilerplate --max
 ```
 
 If you want very few of these extras:
 
 ```sh
-ignite new MyLatestCreation --min
+ignite new MyLatestCreation --b ignite-typescript-boilerplate --min
 ```
+
+## Using Typescript with React Native
+
+React Native can't compile Typescript directly, so we add a transpilation step which compiles the .tsx files to 
+Javascript, ready for Babel. These are compiled to the `dist` directory. The easiest way to handle 
+this is to run `npm run watch` which watches the source files for changes and compiles them to the `dist` directory.
+You will need to run `npm run copyfiles` once to copy images and fixtures into the `dist` directory.
+
+## Coding style
+
+We use `tslint` to enforce coding style, with rules based on [Palantir's tslint-react]
+(https://github.com/palantir/tslint-react), with a few changes to accommodate some Ignite quirks. If you install a 
+plugin, your editor can probably automatically fix problems. In VS Code, set `"tslint.autoFixOnSave": true` in your 
+workspace settings. You can run the linter from the command line. `npm run lint` runs the linter, while `npm run fixcode` tries to autofix problems.
 
 ## Boilerplate walkthrough
 
-Your `App` folder is where most of the goodies are found in an Ignite Next app. Let's walk through them in more detail. Start with `Containers/App.js` (described below) and work your way down the walkthrough in order.
+Your `App` folder is where most of the goodies are found in an Ignite Next app. Let's walk through them in more detail. Start with `Containers/App.tsx` (described below) and work your way down the walkthrough in order.
 
 ### Containers
 
 Containers are (mostly) full screens, although they can be sections of screens or application containers.
 
-* `App.js` - your main application. We create a Redux store and configure it here
-* `RootContainer.js` - main view of your application. Contains your status bar and navigation component
-* `LaunchScreen.js` - this is the first screen shown in your application. It's loaded into the Navigation component
-* `LoginScreen.js` - an example login screen. Read the comments in there to learn more!
+* `App.tsx` - your main application. We create a Redux store and configure it here
+* `RootContainer.tsx` - main view of your application. Contains your status bar and navigation component
+* `LaunchScreen.tsx` - this is the first screen shown in your application. It's loaded into the Navigation component
+* `LoginScreen.tsx` - an example login screen. Read the comments in there to learn more!
 * `Styles` - styling for each of the above containers and screens
 
 ### Navigation
 
 Your primary and other navigation components reside here.
 
-* `AppNavigation.js` - loads in your initial screen and creates your menu(s) in a StackNavigation
+* `AppNavigation.tsx` - loads in your initial screen and creates your menu(s) in a StackNavigation
 * `Styles` - styling for the navigation
 
 ### Components
@@ -69,30 +82,30 @@ React components go here...pretty self-explanatory. We won't go through each in 
 
 ### Storybook
 
-[Storybook](https://storybook.js.org/) has been setup to show off components in the different states. Storybook is a great way to develop and test components outside of use in your app. Simply run `npm run storybook` to get started. All stores are contained in the `*.story.js` files along side the components.
+[Storybook](https://storybook.js.org/) has been setup to show off components in the different states. Storybook is a great way to develop and test components outside of use in your app. Simply run `npm run storybook` to get started. All stores are contained in the `*.story.tsx` files along side the components.
 
 ### Themes
 
 Styling themes used throughout your app styles.
 
-* `ApplicationStyles.js` - app-wide styles
-* `Colors.js` - defined colors for your app
-* `Fonts.js` - defined fonts for your app
-* `Images.js` - loads and caches images used in your app
-* `Metrics.js` - useful measurements of things like navBarHeight
+* `ApplicationStyles.ts` - app-wide styles
+* `Colors.ts` - defined colors for your app
+* `Fonts.ts` - defined fonts for your app
+* `Images.ts` - loads and caches images used in your app
+* `Metrics.ts` - useful measurements of things like navBarHeight
 
 ### Config
 
 Initialize and configure things here.
 
-* `AppConfig.js` - simple React Native configuration here
+* `AppConfig.ts` - simple React Native configuration here
 * `DebugConfig.js` - define how you want your debug environment to act
-* `ReactotronConfig.js` - configures [Reactotron](https://github.com/infinitered/reactotron) in your project (Note: this [will be extracted](https://github.com/infinitered/ignite/issues/779) into a plugin in the future)
-* `ReduxPersist.js` - configures Redux Persist (Note: this [will be extracted](https://github.com/infinitered/ignite/issues/780) into a plugin in the future)
+* `ReactotronConfig.ts` - configures [Reactotron](https://github.com/infinitered/reactotron) in your project (Note: this [will be extracted](https://github.com/infinitered/ignite/issues/779) into a plugin in the future)
+* `ReduxPersist.ts` - configures Redux Persist (Note: this [will be extracted](https://github.com/infinitered/ignite/issues/780) into a plugin in the future)
 
 ### Fixtures
 
-Contains json files that mimic API responses for quicker development. These are used by the `Services/FixtureApi.js` object to mock API responses.
+Contains json files that mimic API responses for quicker development. These are used by the `Services/FixtureApi.ts` object to mock API responses.
 
 ### Redux, Sagas
 
@@ -104,11 +117,10 @@ _TODO: explain more about Redux & Redux Sagas here_
 
 Contains your API service and other important utilities for your application.
 
-* `Api.js` - main API service, giving you an interface to communicate with your back end
-* `ExamplesRegistry.js` - lets you view component and Ignite plugin examples in your app
-* `FixtureApi.js` - mocks your API service, making it faster to develop early on in your app
-* `ImmutablePersistenceTransform.js` - part of the redux-persist implementation (will be removed)
-* `RehydrationServices.js` - part of the redux-persist implementation (will be removed)
+* `Api.tsx` - main API service, giving you an interface to communicate with your back end
+* `ExamplesRegistry.tsx` - lets you view component and Ignite plugin examples in your app
+* `FixtureApi.tsx` - mocks your API service, making it faster to develop early on in your app
+
 
 ### Lib
 
