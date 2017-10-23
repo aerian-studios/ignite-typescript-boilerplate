@@ -102,11 +102,11 @@ module.exports = async function (context) {
   const jobs = [
     {
       template: `${componentTemplate}.ejs`,
-      target: `App/Containers/${name}.js`
+      target: `App/Containers/${name}.tsx`
     },
     {
       template: `${styleTemplate}.ejs`,
-      target: `App/Containers/Styles/${name}Style.js`
+      target: `App/Containers/Styles/${name}Style.ts`
     }
   ]
 
@@ -116,8 +116,8 @@ module.exports = async function (context) {
   // and insert the screen into the nav router
   if (config.navigation === 'react-navigation') {
     const screenName = `${name}`
-    const appNavFilePath = `${process.cwd()}/App/Navigation/AppNavigation.js`
-    const importToAdd = `import ${screenName} from '../Containers/${screenName}'`
+    const appNavFilePath = `${process.cwd()}/App/Navigation/AppNavigation.tsx`
+    const importToAdd = `import ${screenName} from "../Containers/${screenName}";`
     const routeToAdd = `  ${screenName}: { screen: ${screenName} },`
 
     if (!filesystem.exists(appNavFilePath)) {

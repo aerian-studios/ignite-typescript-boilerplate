@@ -17,11 +17,11 @@ module.exports = async function (context) {
   const name = pascalCase(parameters.first)
   const props = { name }
 
-  const jobs = [{ template: `saga.ejs`, target: `App/Sagas/${name}Sagas.js` }]
+  const jobs = [{ template: `saga.ejs`, target: `App/Sagas/${name}Sagas.tsx` }]
   if (tests) {
     jobs.push({
       template: `saga-test-${tests}.ejs`,
-      target: `Tests/Sagas/${name}SagaTest.js`
+      target: `Tests/Sagas/${name}SagaTest.tsx`
     })
   }
 
