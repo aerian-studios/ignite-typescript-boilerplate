@@ -23,13 +23,12 @@ interface Props {
   text: string;
 }
 
-export default class DrawerButton extends React.Component<Props, {}> {
-
-  public render() {
+const DrawerButton = ({text, onPress = () => {}}:Props) => {
     return (
-      <TouchableOpacity onPress={this.props.onPress}>
-        <Text style={styles.text}>{this.props.text}</Text>
+      <TouchableOpacity onPress={onPress}>
+        <Text style={styles.text}>{text}</Text>
       </TouchableOpacity>
     );
-  }
 }
+
+export default DrawerButton;

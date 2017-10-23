@@ -11,32 +11,26 @@ import styles from "./Styles/RoundedButtonStyles";
 /* istanbul ignore next */
 ExamplesRegistry.addComponentExample("Rounded Button", () =>
   (
-  <RoundedButton
-    text="real buttons have curves"
-    // tslint:disable-next-line:jsx-no-lambda
-    onPress={() => window.alert("Rounded Button Pressed!")}
-  />),
+    <RoundedButton
+      text="real buttons have curves"
+      // tslint:disable-next-line:jsx-no-lambda
+      onPress={() => window.alert("Rounded Button Pressed!")}
+    />),
 );
 
 interface Props {
   onPress?: () => void;
   text?: string;
   children?: string;
-  navigator?: any;
 }
 
-export default class RoundedButton extends React.Component<Props, {}> {
+const RoundedButton = ({ text, children, onPress = () => { } }: Props) => {
 
-  public getText() {
-    const buttonText: string = (this.props.text || this.props.children || "") as string;
-    return buttonText.toUpperCase();
-  }
+  const buttonText: string = (text || children || "").toUpperCase();
+  return (
+    <TouchableOpacity style={styles.button} onPress={onPress}>
+      <Text style={styles.buttonText}>{buttonText}</Text>
+    </TouchableOpacity>
+  );
 
-  public render() {
-    return (
-      <TouchableOpacity style={styles.button} onPress={this.props.onPress}>
-        <Text style={styles.buttonText}>{this.getText()}</Text>
-      </TouchableOpacity>
-    );
-  }
 }
