@@ -100,7 +100,7 @@ Styling themes used throughout your app styles.
 Initialize and configure things here.
 
 * `AppConfig.ts` - simple React Native configuration here
-* `DebugConfig.js` - define how you want your debug environment to act. This is a .js file. because that's what
+* `DebugConfig.js` - define how you want your debug environment to act. This is a .js file because that's what
 Ignite expects to find.
 * `ReactotronConfig.ts` - configures [Reactotron](https://github.com/infinitered/reactotron) in your project (Note: this [will be extracted](https://github.com/infinitered/ignite/issues/779) into a plugin in the future)
 * `ReduxPersist.ts` - configures Redux Persist (Note: this [will be extracted](https://github.com/infinitered/ignite/issues/780) into a plugin in the future)

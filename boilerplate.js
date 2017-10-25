@@ -41,7 +41,7 @@ async function install (context) {
 
   const name = parameters.third
   const spinner = print
-    .spin(`using the TypeScript boilerplate, based on the ${red('Infinite Red')} boilerplate v2`)
+    .spin(`using the TypeScript boilerplate. You might want to make a cuppa while we get this ready. ☕️`)
     .succeed()
 
   // attempt to install React Native or die trying
@@ -135,7 +135,7 @@ async function install (context) {
 
     // read in the react-native created package.json
     const currentPackage = filesystem.read('package.json', 'json')
-
+    
     // deep merge, lol
     const newPackage = pipe(
       assoc(
@@ -175,7 +175,7 @@ async function install (context) {
   try {
     // boilerplate adds itself to get plugin.js/generators etc
     // Could be directory, npm@version, or just npm name.  Default to passed in values
-    const boilerplate = parameters.options.b || parameters.options.boilerplate || 'ignite-ir-boilerplate'
+    const boilerplate = parameters.options.b || parameters.options.boilerplate || 'ignite-typescript-boilerplate'
 
     await system.spawn(`ignite add ${boilerplate} ${debugFlag}`, { stdio: 'inherit' })
 
@@ -202,11 +202,6 @@ async function install (context) {
       })
     }
 
-    if (parameters.options.lint !== 'false') {
-      await system.spawn(`ignite add standard@"~>1.0.0" ${debugFlag}`, {
-        stdio: 'inherit'
-      })
-    }
   } catch (e) {
     ignite.log(e)
     throw e
