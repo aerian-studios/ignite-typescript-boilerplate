@@ -32,6 +32,8 @@
   "devDependencies": {
     "@types/react": "^16.0.18",
     "@types/react-native": "^0.49.2",
+    "@types/react-navigation": "^1.0.21",
+    "@types/react-redux": "^5.0.10",
     "fs-jetpack": "^1.0.0",
     "jest": "^20.0.4",
     "np": "^2.15.0",
