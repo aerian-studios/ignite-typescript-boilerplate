@@ -1,5 +1,5 @@
 import R from "ramda";
-import React from "react";
+import * as React from "react";
 import { Text, View } from "react-native";
 import DebugConfig from "../Config/DebugConfig";
 import { ApplicationStyles } from "../Themes";

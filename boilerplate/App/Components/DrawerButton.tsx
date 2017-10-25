@@ -23,12 +23,10 @@ interface Props {
   text: string;
 }
 
-const DrawerButton = ({text, onPress = () => {}}:Props) => {
-    return (
-      <TouchableOpacity onPress={onPress}>
-        <Text style={styles.text}>{text}</Text>
-      </TouchableOpacity>
-    );
-}
+const DrawerButton = ({text, onPress = () => {}}:Props) => (
+  <TouchableOpacity onPress={onPress}>
+    <Text style={styles.text}>{text}</Text>
+  </TouchableOpacity>
+);
 
 export default DrawerButton;

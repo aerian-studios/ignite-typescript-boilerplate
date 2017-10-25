@@ -23,11 +23,10 @@ interface Props {
     text?: string;
 }
 
-const FullButton = ({text, style, onPress = () => {}}:Props) => {
-    return (
-      <TouchableOpacity style={[styles.button, style]} onPress={onPress}>
-        <Text style={styles.buttonText}>{text && text.toUpperCase()}</Text>
-      </TouchableOpacity>
-    );
-}
+const FullButton = ({text, style, onPress = () => {}}:Props) => (
+  <TouchableOpacity style={[styles.button, style]} onPress={onPress}>
+    <Text style={styles.buttonText}>{text && text.toUpperCase()}</Text>
+  </TouchableOpacity>
+);
+
 export default FullButton;

@@ -3,7 +3,7 @@ import * as React from "react";
 
 import RoundedButton from "./RoundedButton";
 
-storiesOf("RoundedButton")
+storiesOf("RoundedButton", module)
   .add("Default", () => (
     <RoundedButton
       text="A simple rounded button"

@@ -12,6 +12,6 @@ storiesOf("FullButton")
   .add("Custom Style", () => (
     <FullButton
       text="Style Me Up!"
-      styles={{ backgroundColor: "blue" }}
+      style={{ backgroundColor: "blue" }}
     />
   ));

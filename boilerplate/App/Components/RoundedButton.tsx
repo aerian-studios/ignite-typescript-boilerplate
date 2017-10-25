@@ -25,12 +25,12 @@ interface Props {
 }
 
 const RoundedButton = ({ text, children, onPress = () => { } }: Props) => {
-
-  const buttonText: string = (text || children || "").toUpperCase();
+  const buttonText = (text || children || "").toUpperCase();
   return (
     <TouchableOpacity style={styles.button} onPress={onPress}>
       <Text style={styles.buttonText}>{buttonText}</Text>
     </TouchableOpacity>
   );
+};
 
-}
+export default RoundedButton;
