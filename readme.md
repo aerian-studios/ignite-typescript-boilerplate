@@ -139,3 +139,12 @@ Helpers for transforming data between API and your application and vice versa. A
 ### Tests
 
 This folder (located as a sibling to `App`) contains sample Jest snapshot and unit tests for your application.
+
+### Further reading
+
+A comprehensive guide to best practice with TypeScript in React is [the React Redux TypeScript Guide](https://github.com/piotrwitek/react-redux-typescript-guide), which covers a lot more than just Redux. We have adopted a lot of the patterns from this.
+
+Microsoft created [TypeScript React Native Starter](https://github.com/Microsoft/TypeScript-React-Native-Starter), which includes a walkthrough on switching projects to TypeScript.
+
+(React TypeScript Tutorial)[https://github.com/DanielRosenwasser/React-TypeScript-Tutorial] is React rather than React Native, but has useful guides.
+
