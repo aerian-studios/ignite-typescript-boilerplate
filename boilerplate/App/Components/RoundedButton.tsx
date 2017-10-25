@@ -24,7 +24,7 @@ interface Props {
   children?: string;
 }
 
-const RoundedButton = ({ text, children, onPress = () => { } }: Props) => {
+const RoundedButton: React.SFC<Props> = ({ text, children, onPress = () => { } }: Props) => {
   const buttonText = (text || children || "").toUpperCase();
   return (
     <TouchableOpacity style={styles.button} onPress={onPress}>

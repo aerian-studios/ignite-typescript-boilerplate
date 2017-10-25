@@ -7,7 +7,7 @@ interface Props {
   anotherProperty: boolean;
 }
 
-const <%= props.name %> = ({someProperty, anotherProperty}: Props) =>  (
+const <%= props.name %>: React.SFC<Props> = ({someProperty, anotherProperty}: Props) =>  (
   <View style={styles.container}>
     <Text><%= props.name %> Component</Text>
   </View>

@@ -9,7 +9,7 @@ interface Props {
   title?: string;
 }
 
-const AlertMessage = ({ icon, show = true, style, title }: Props) => show ? (
+const AlertMessage: React.SFC<Props> = ({ icon, show = true, style, title }: Props) => show ? (
   <View style={[styles.container, style]}>
     <View style={styles.contentContainer}>
       <Text allowFontScaling={false} style={styles.message}>{title && title.toUpperCase()}</Text>

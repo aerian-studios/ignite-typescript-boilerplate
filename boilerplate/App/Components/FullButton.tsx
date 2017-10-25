@@ -23,7 +23,7 @@ interface Props {
     text?: string;
 }
 
-const FullButton = ({text, style, onPress = () => {}}:Props) => (
+const FullButton: React.SFC<Props> = ({text, style, onPress = () => {}}:Props) => (
   <TouchableOpacity style={[styles.button, style]} onPress={onPress}>
     <Text style={styles.buttonText}>{text && text.toUpperCase()}</Text>
   </TouchableOpacity>

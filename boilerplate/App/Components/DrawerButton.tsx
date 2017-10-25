@@ -23,7 +23,7 @@ interface Props {
   text: string;
 }
 
-const DrawerButton = ({text, onPress = () => {}}:Props) => (
+const DrawerButton: React.SFC<Props> = ({text, onPress = () => {}}:Props) => (
   <TouchableOpacity onPress={onPress}>
     <Text style={styles.text}>{text}</Text>
   </TouchableOpacity>
