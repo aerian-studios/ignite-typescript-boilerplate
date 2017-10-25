@@ -4,7 +4,7 @@
   "license": "MIT",
   "repository": "aerian-studios/ignite-typescript-boilerplate",
   "homepage": "https://github.com/aerian-studios/ignite-typescript-boilerplate",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "files": [
     "boilerplate",
     "commands",
@@ -29,26 +29,15 @@
     "coverage": "jest --runInBand --coverage",
     "shipit": "np"
   },
-  "standard": {
-    "parser": "babel-eslint",
-    "globals": [
-      "__DEV__",
-      "jasmine",
-      "beforeAll",
-      "afterAll",
-      "test",
-      "expect",
-      "describe"
-    ]
-  },
   "devDependencies": {
-    "babel-eslint": "^7.1.1",
+    "@types/react": "^16.0.18",
+    "@types/react-native": "^0.49.2",
     "fs-jetpack": "^1.0.0",
     "jest": "^20.0.4",
     "np": "^2.15.0",
     "sinon": "^2.3.1",
-    "standard": "^10.0.2",
-    "tempy": "^0.1.0"
+    "tempy": "^0.1.0",
+    "tslint": "^5.8.0"
   },
   "dependencies": {
     "ramda": "^0.23.0"
