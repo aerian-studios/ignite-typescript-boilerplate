@@ -1,4 +1,5 @@
 import { createActions, createReducer } from "reduxsauce";
+import { Reducer } from "redux";
 import * as SI from "seamless-immutable";
 
 /* ------------- Types and Action Creators ------------- */
@@ -19,9 +20,11 @@ interface GithubState {
   username: string | null;
 }
 
+export type ImmutableGithubState = SI.ImmutableObject<GithubState>;
+
 /* ------------- Initial State ------------- */
 
-export const INITIAL_STATE = SI.from<GithubState>({
+export const INITIAL_STATE:ImmutableGithubState = SI.from({
   avatar: null,
   fetching: null,
   error: null,
@@ -31,17 +34,17 @@ export const INITIAL_STATE = SI.from<GithubState>({
 /* ------------- Reducers ------------- */
 
 // request the avatar for a user
-export const request = (state: SI.ImmutableObject<GithubState>, { username }: SI.ImmutableObject<GithubState>) =>
+export const request:Reducer<ImmutableGithubState> = (state: ImmutableGithubState, { username }: ImmutableGithubState) =>
   state.merge({ fetching: true, username, avatar: null });
 
 // successful avatar lookup
-export const success = (state: SI.ImmutableObject<GithubState>, action: SI.ImmutableObject<GithubState>) => {
+export const success = (state: ImmutableGithubState, action: ImmutableGithubState) => {
   const { avatar } = action;
   return state.merge({ fetching: false, error: null, avatar });
 };
 
 // failed to get the avatar
-export const failure = (state: SI.ImmutableObject<GithubState>) =>
+export const failure = (state: ImmutableGithubState) =>
   state.merge({ fetching: false, error: true, avatar: null });
 
 /* ------------- Hookup Reducers To Types ------------- */
