@@ -1,7 +1,6 @@
-import { filter } from "ramda";
-import { startsWith } from "ramdasauce";
+import { filter, startsWith } from "ramda";
+import { Action, Reducer } from "redux";
 import { createActions, createReducer } from "reduxsauce";
-import { Reducer } from "redux";
 import * as SI from "seamless-immutable";
 
 const LIST_DATA = ["sausage", "blubber", "pencil", "cloud", "moon", "water", "computer", "school",
@@ -34,9 +33,11 @@ export interface SearchState {
   results: string[];
 }
 
+export type SearchAction = SearchState & Action;
+
 type ImmutableSearchState = SI.ImmutableObject<SearchState>;
 
-export const INITIAL_STATE:ImmutableSearchState = SI.from<SearchState>({
+export const INITIAL_STATE: ImmutableSearchState = SI.from<SearchState>({
   searchTerm: "",
   searching: false,
   results: LIST_DATA,
@@ -44,16 +45,17 @@ export const INITIAL_STATE:ImmutableSearchState = SI.from<SearchState>({
 
 /* ------------- Reducers ------------- */
 
-export const performSearch:Reducer<ImmutableSearchState> = (state: ImmutableSearchState, { searchTerm }) => {
+export const performSearch: Reducer<ImmutableSearchState> = (state: ImmutableSearchState,
+                                                             { searchTerm }: SearchAction) => {
   const results = filter(startsWith(searchTerm), LIST_DATA);
   return state.merge({ searching: true, searchTerm, results });
 };
 
-export const cancelSearch:Reducer<ImmutableSearchState> = (state: ImmutableSearchState) => INITIAL_STATE;
+export const cancelSearch: Reducer<ImmutableSearchState> = (state: ImmutableSearchState) => INITIAL_STATE;
 
 /* ------------- Hookup Reducers To Types ------------- */
 
-export const reducer:Reducer<ImmutableSearchState> = createReducer(INITIAL_STATE, {
+export const reducer: Reducer<ImmutableSearchState> = createReducer(INITIAL_STATE, {
   [Types.SEARCH]: performSearch,
   [Types.CANCEL_SEARCH]: cancelSearch,
 });
