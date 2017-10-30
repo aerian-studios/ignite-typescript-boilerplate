@@ -1,5 +1,5 @@
 import { Reducer, AnyAction, Action, ReducersMapObject } from 'redux';
-
+declare module reduxsauce {
 export interface ActionTypes {
     [key: string]: string;
 }
@@ -40,3 +40,4 @@ export function resettableReducer<S>(type:string, originalReducer: Reducer<S>): 
 export function resettableReducer<S>(type:string): (originalReducer: Reducer<S>) => Reducer<S>;
 
 
+}
