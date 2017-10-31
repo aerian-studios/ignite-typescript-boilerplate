@@ -13,14 +13,14 @@ const { Types, Creators } = createActions({
 export const <%= pascalCase(props.name) %>Types = Types;
 export default Creators;
 
-interface <%= pascalCase(props.name) %>State {
+export interface <%= pascalCase(props.name) %>State {
   data?: string | null;
   error?: boolean | null;
   fetching?: boolean | null;
   payload?: string | null;
 }
 
-type <%= pascalCase(props.name) %>Action = <%= pascalCase(props.name) %>State & Action;
+export type <%= pascalCase(props.name) %>Action = <%= pascalCase(props.name) %>State & Action;
 
 export type Immutable<%= pascalCase(props.name) %>State = SI.ImmutableObject<<%= pascalCase(props.name) %>State>;
 
