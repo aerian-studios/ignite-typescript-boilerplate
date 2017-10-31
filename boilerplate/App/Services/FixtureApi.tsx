@@ -1,24 +1,27 @@
+import {ApiResponse} from "apisauce";
+import {GithubApi} from "./Api";
+
 export default {
   // Functions return fixtures
-  getRoot: () => {
-    return {
+  getRoot: (): Promise<ApiResponse<any>> => {
+    return Promise.resolve({
       ok: true,
       data: require("../Fixtures/root.json"),
-    };
+    } as ApiResponse<any>);
   },
-  getRate: () => {
-    return {
+  getRate: (): Promise<ApiResponse<any>> => {
+    return Promise.resolve({
       ok: true,
       data: require("../Fixtures/rateLimit.json"),
-    };
+    } as ApiResponse<any>);
   },
-  getUser: (username) => {
+  getUser: (username: string): Promise<ApiResponse<any>> => {
     // This fixture only supports gantman or else returns skellock
     const gantmanData = require("../Fixtures/gantman.json");
     const skellockData = require("../Fixtures/skellock.json");
-    return {
+    return Promise.resolve({
       ok: true,
       data: username.toLowerCase() === "gantman" ? gantmanData : skellockData,
-    };
+    } as ApiResponse<any>);
   },
-};
+} as GithubApi;

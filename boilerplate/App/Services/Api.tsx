@@ -1,15 +1,48 @@
 // a library to wrap and simplify api calls
-import apisauce from "apisauce";
+import {ApiResponse, create as apicreate} from "apisauce";
+
+export interface GithubApi {
+  getRoot: () => Promise<ApiResponse<{}>>;
+  getRate: () => Promise<ApiResponse<{}>>;
+  getUser: (username: string) => Promise<ApiResponse<GithubResponse>>;
+}
+
+export interface GithubUser {
+  login: string;
+  id: number;
+  avatar_url: string;
+  gravatar_id: string;
+  url: string;
+  html_url: string;
+  followers_url: string;
+  following_url: string;
+  gists_url: string;
+  starred_url: string;
+  subscriptions_url: string;
+  organizations_url: string;
+  repos_url: string;
+  events_url: string;
+  received_events_url: string;
+  type: "User";
+  site_admin: boolean;
+  score: number;
+}
+
+export interface GithubResponse {
+  total_count: number;
+  incomplete_results: false;
+  items: GithubUser[];
+}
 
 // our "constructor"
-const create = (baseURL = "https://api.github.com/") => {
+export const createAPI = (baseURL = "https://api.github.com/"): GithubApi => {
   // ------
   // STEP 1
   // ------
   //
   // Create and configure an apisauce-based api object.
   //
-  const api = apisauce.create({
+  const api = apicreate({
     // base URL is read from the "constructor"
     baseURL,
     // here are some default headers
@@ -60,5 +93,5 @@ const create = (baseURL = "https://api.github.com/") => {
 
 // let's return back our create method as the default.
 export default {
-  create,
+  createAPI,
 };
