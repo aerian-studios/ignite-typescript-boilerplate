@@ -11,7 +11,7 @@ const { Types, Creators } = createActions({
 });
 
 export const GithubTypes = Types;
-export default Creators;
+export const GithubActions = Creators;
 
 interface GithubState {
   avatar?: string | null;
@@ -20,7 +20,7 @@ interface GithubState {
   username?: string | null;
 }
 
-type GithubAction = GithubState & Action;
+export type GithubAction = GithubState & Action;
 
 export type ImmutableGithubState = SI.ImmutableObject<GithubState>;
 

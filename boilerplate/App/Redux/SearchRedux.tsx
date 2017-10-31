@@ -35,7 +35,7 @@ export interface SearchState {
 
 export type SearchAction = SearchState & Action;
 
-type ImmutableSearchState = SI.ImmutableObject<SearchState>;
+export type ImmutableSearchState = SI.ImmutableObject<SearchState>;
 
 export const INITIAL_STATE: ImmutableSearchState = SI.from<SearchState>({
   searchTerm: "",
