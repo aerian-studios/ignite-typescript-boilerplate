@@ -2,9 +2,8 @@
   "generators": [
     "component",
     "container",
-    "listview",
     "list",
-    "redux",
+    "reducers",
     "saga",
     "screen"
   ]
