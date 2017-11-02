@@ -45,7 +45,7 @@ ignite new MyLatestCreation --b ignite-typescript-boilerplate --min
 
 React Native can't compile TypeScript directly, so we add a transpilation step which compiles the .tsx files to 
 Javascript, ready for Babel. These are compiled to the `dist` directory. The easiest way to handle 
-this is to run `npm run watch` which watches the source files for changes and compiles them to the `dist` directory.
+this is to tell your IDE to automatically compile TypeScript files. A sample VSCode task is included for this. Alternatively run `npm run watch`.
 You will need to run `npm run copyfiles` once to copy images and fixtures into the `dist` directory. You can then
 run `react-native start` and `react-native run-ios` or `react-native run-android` as usual.
 

@@ -1,4 +1,4 @@
-import "./AlertMessage.story";
-import "./DrawerButton.story";
-import "./FullButton.story";
-import "./RoundedButton.story";
+import "./AlertMessage/AlertMessage.story";
+import "./DrawerButton/DrawerButton.story";
+import "./FullButton/FullButton.story";
+import "./RoundedButton/RoundedButton.story";

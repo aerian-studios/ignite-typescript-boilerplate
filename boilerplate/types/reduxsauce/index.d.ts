@@ -1,4 +1,4 @@
-import { Reducer, AnyAction, Action, ReducersMapObject } from 'redux';
+import { Action, AnyAction, Reducer, ReducersMapObject } from "redux";
 export interface ActionTypes {
     [key: string]: string;
 }
@@ -7,16 +7,13 @@ export interface ActionConfig {
     [key: string]: string[] | ActionCreator | {[key: string]: any} | null;
 }
 
-
-export interface ActionCreator {
-    (...args: any[]): Action;
-}
+export type ActionCreator = (...args: any[]) => Action;
 
 export interface ActionCreators {
     [key: string]: ActionCreator;
 }
 
-export function createActions(config: ActionConfig, options?: any): {Types: ActionTypes, Creators: ActionCreators };
+export function createActions(config: ActionConfig, options?: {prefix?: string}): {Types: ActionTypes, Creators: ActionCreators };
 
 /**
  * Creates a reducer.
@@ -24,9 +21,9 @@ export function createActions(config: ActionConfig, options?: any): {Types: Acti
  * @param {object} handlers - Keys are action types (strings), values are reducers (functions).
  * @return {Reducer<S>} A reducer object.
  */
-export function createReducer<S>(initialState: S, handlers:ReducersMapObject): Reducer<S>;
+export function createReducer<S>(initialState: S, handlers: ReducersMapObject): Reducer<S>;
 
-export function createTypes(types: string, options?:{prefix?: string, [key: string]: any}):ActionTypes;
+export function createTypes(types: string, options?: {prefix?: string, [key: string]: any}): ActionTypes;
 
 /**
  * Allows your reducers to be reset.
@@ -34,6 +31,6 @@ export function createTypes(types: string, options?:{prefix?: string, [key: stri
  * @param {string} typeToReset - The action type to listen for.
  * @param {Reducer<T>} originalReducer - The reducer to wrap.
  */
-export function resettableReducer<S>(type:string, originalReducer: Reducer<S>): Reducer<S>;
+export function resettableReducer<S>(type: string, originalReducer: Reducer<S>): Reducer<S>;
 
-export function resettableReducer<S>(type:string): (originalReducer: Reducer<S>) => Reducer<S>;
+export function resettableReducer<S>(type: string): (originalReducer: Reducer<S>) => Reducer<S>;

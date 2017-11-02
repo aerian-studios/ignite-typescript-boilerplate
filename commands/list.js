@@ -20,7 +20,7 @@ module.exports = async function (context) {
 
   // which type of list in code
   const typeCodeMessage = 'What coding style do you want for your list?'
-  const typeCodeChoices = ['Flatlist (new)', 'Listview (classic)']
+  const typeCodeChoices = ['Flatlist (new)', 'Listview (deprecated)']
 
   // which type of layout?
   const typeMessage = 'What kind of List would you like to generate?'
@@ -102,11 +102,11 @@ module.exports = async function (context) {
   const jobs = [
     {
       template: `${componentTemplate}.ejs`,
-      target: `App/Containers/${name}.tsx`
+      target: `App/Containers/${name}/${name}.tsx`
     },
     {
       template: `${styleTemplate}.ejs`,
-      target: `App/Containers/Styles/${name}Style.ts`
+      target: `App/Containers/${name}/${name}Style.ts`
     }
   ]
 
@@ -117,7 +117,7 @@ module.exports = async function (context) {
   if (config.navigation === 'react-navigation') {
     const screenName = `${name}`
     const appNavFilePath = `${process.cwd()}/App/Navigation/AppNavigation.tsx`
-    const importToAdd = `import ${screenName} from "../Containers/${screenName}";`
+    const importToAdd = `import { ${screenName} } from "../Containers/${screenName}";`
     const routeToAdd = `  ${screenName}: { screen: ${screenName} },`
 
     if (!filesystem.exists(appNavFilePath)) {
