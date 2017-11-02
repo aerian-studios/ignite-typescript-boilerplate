@@ -10,8 +10,8 @@
 *    you'll need to define a constant in that file.
 *************************************************************/
 import { ApiResponse } from "apisauce";
-import { call, put } from "redux-saga/effects";
 import { SagaIterator } from "redux-saga";
+import { call, put } from "redux-saga/effects";
 import { <%= props.name %>Actions, <%= props.name %>Action } from "../../Reducers/<%= props.name %>Reducers";
 import { <%= props.name %>Api, <%= props.name %>Response } from "../../Services/<%= props.name %>Api";
 
@@ -19,7 +19,7 @@ import { <%= props.name %>Api, <%= props.name %>Response } from "../../Services/
 export function * get<%= props.name %> (api: <%= props.name %>Api, action: <%= props.name %>Action): SagaIterator {
   const { data } = action;
   // make the call to the api
-  const response:ApiResponse<<%= props.name %>Response>  = yield call(api.get<%= camelCase(props.name) %>, data);
+  const response: ApiResponse<<%= props.name %>Response>  = yield call(api.get<%= camelCase(props.name) %>, data);
 
   // success?
   if (response.ok) {
