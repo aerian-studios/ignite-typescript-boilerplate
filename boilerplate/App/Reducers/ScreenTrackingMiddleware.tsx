@@ -1,4 +1,5 @@
-import { NavigationActions, NavigationNavigateAction } from "react-navigation";
+import { NavigationActions } from "react-navigation";
+import Reactotron from "reactotron-react-native";
 
 // gets the current screen from navigation state
 const getCurrentRouteName = (navigationState) => {
@@ -26,10 +27,10 @@ const screenTracking = ({ getState }) => (next) => (action) => {
   const nextScreen = getCurrentRouteName(getState().nav);
   if (nextScreen !== currentScreen) {
     try {
-      console.tron.log(`NAVIGATING ${currentScreen} to ${nextScreen}`);
+      Reactotron.log(`NAVIGATING ${currentScreen} to ${nextScreen}`);
       // Example: Analytics.trackEvent('user_navigation', {currentScreen, nextScreen})
     } catch (e) {
-      console.tron.log(e);
+      Reactotron.log(e);
     }
   }
   return result;

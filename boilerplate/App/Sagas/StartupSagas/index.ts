@@ -7,7 +7,7 @@ import { GithubAction, GithubActions } from "../../Reducers/GithubReducers";
 import { StartupActions } from "../../Reducers/StartupReducers";
 
 // exported to make available for tests
-export const selectAvatar = (state) => state.github.avatar;
+export const selectAvatar = (state: any) => state.github.avatar;
 
 // process STARTUP actions
 export function * startup(action?: Action): SagaIterator {

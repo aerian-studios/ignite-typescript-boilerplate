@@ -1,5 +1,5 @@
 import {ApiResponse} from "apisauce";
-import {GithubApi} from "./Api";
+import {GithubApi} from "./GithubApi";
 
 export default {
   // Functions return fixtures

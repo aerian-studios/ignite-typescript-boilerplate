@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Text, TouchableOpacity } from "react-native";
-import ExamplesRegistry from "../Services/ExamplesRegistry";
-import styles from "./Styles/RoundedButtonStyles";
+import ExamplesRegistry from "../../Services/ExamplesRegistry";
+import styles from "./RoundedButtonStyles";
 
 // Note that this file (App/Components/RoundedButton) needs to be
 // imported in your app somewhere, otherwise your component won't be
@@ -24,6 +24,7 @@ interface Props {
   children?: string;
 }
 
+// tslint:disable-next-line:no-empty
 const RoundedButton: React.SFC<Props> = ({ text, children, onPress = () => { } }: Props) => {
   const buttonText = (text || children || "").toUpperCase();
   return (

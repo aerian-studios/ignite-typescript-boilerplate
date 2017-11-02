@@ -3,7 +3,7 @@ import { StatusBar, View } from "react-native";
 import { connect } from "react-redux";
 import ReduxPersist from "../../Config/ReduxPersist";
 import ReduxNavigation from "../../Navigation/ReduxNavigation";
-import StartupActions from "../../Redux/StartupRedux";
+import { StartupActions } from "../../Reducers/StartupReducers";
 
 // Styles
 import styles from "./RootContainerStyles";

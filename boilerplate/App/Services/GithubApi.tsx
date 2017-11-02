@@ -67,9 +67,9 @@ export const createAPI = (baseURL = "https://api.github.com/"): GithubApi => {
   // Since we can't hide from that, we embrace it by getting out of the
   // way at this level.
   //
-  const getRoot = () => api.get("");
-  const getRate = () => api.get("rate_limit");
-  const getUser = (username: string) => api.get("search/users", {q: username});
+  const getRoot = () => api.get<GithubResponse>("");
+  const getRate = () => api.get<GithubResponse>("rate_limit");
+  const getUser = (username: string) => api.get<GithubResponse>("search/users", {q: username});
 
   // ------
   // STEP 3

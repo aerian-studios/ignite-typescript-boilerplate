@@ -3,8 +3,8 @@ import { combineReducers } from "redux";
 import root from "../Sagas";
 import configureStore from "./CreateStore";
 import { GithubReducer, ImmutableGithubState } from "./GithubReducers";
-import { NavigationReducer } from "./NavigationReducers";
-import { SearchReducer } from "./SearchReducers";
+import { NavigationReducer, NavigationState } from "./NavigationReducers";
+import { ImmutableSearchState, SearchReducer } from "./SearchReducers";
 
 /* ------------- Assemble The Reducers ------------- */
 export const reducers = combineReducers({
@@ -15,6 +15,8 @@ export const reducers = combineReducers({
 
 export interface State {
   github: ImmutableGithubState;
+  nav: NavigationState;
+  search: ImmutableSearchState;
 }
 
 export default () => {

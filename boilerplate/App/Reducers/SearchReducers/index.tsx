@@ -45,8 +45,8 @@ export const INITIAL_STATE: ImmutableSearchState = SI.from<SearchState>({
 
 /* ------------- Reducers ------------- */
 
-export const performSearch: Reducer<ImmutableSearchState> = (state: ImmutableSearchState,
-                                                             { searchTerm }: SearchAction) => {
+export const performSearch = (state: ImmutableSearchState,
+                              { searchTerm }: SearchAction) => {
   const results = filter(startsWith(searchTerm), LIST_DATA);
   return state.merge({ searching: true, searchTerm, results });
 };

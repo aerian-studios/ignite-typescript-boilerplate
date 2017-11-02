@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Text, TouchableOpacity, ViewStyle } from "react-native";
-import ExamplesRegistry from "../Services/ExamplesRegistry";
-import styles from "./Styles/FullButtonStyles";
+import ExamplesRegistry from "../../Services/ExamplesRegistry";
+import styles from "./FullButtonStyles";
 
 // Note that this file (App/Components/FullButton) needs to be
 // imported in your app somewhere, otherwise your component won't be
@@ -23,6 +23,7 @@ interface Props {
     text?: string;
 }
 
+// tslint:disable-next-line:no-empty
 const FullButton: React.SFC<Props> = ({text, style, onPress = () => {}}: Props) => (
   <TouchableOpacity style={[styles.button, style]} onPress={onPress}>
     <Text style={styles.buttonText}>{text && text.toUpperCase()}</Text>
