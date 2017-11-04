@@ -73,10 +73,6 @@ async function install (context) {
     overwrite: true,
     matching: '!*.ejs'
   })
-  filesystem.copy(`${ignite.ignitePluginPath()}/boilerplate/.vscode`, `${process.cwd()}/.vscode`, {
-    overwrite: true,
-    matching: '!*.ejs'
-  })
   spinner.stop()
 
   // --max, --min, interactive
