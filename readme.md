@@ -1,11 +1,10 @@
 # Ignite TypeScript Boilerplate
 
-This is an early-stage work in progress. Currently it will build and run the starter app, though there are 
-lots of missing typings.
+This is a work in progress, but is enough to get started with React Native development in TypeScript.
 
-## The great feel of the IR boilerplate, now in TypeScript
+## The great taste of Ignite, now in TypeScript
 
-An almost-direct port of the [Ignite IR Boilerplate](https://github.com/infinitered/ignite-ir-boilerplate) to TypeScript
+A port of the [Ignite IR Boilerplate](https://github.com/infinitered/ignite-ir-boilerplate) to TypeScript.
 
 Currently includes:
 
@@ -43,18 +42,18 @@ ignite new MyLatestCreation --b ignite-typescript-boilerplate --min
 
 ## Using TypeScript with React Native
 
-Thanks to the beauty of [react-native-typescript-transformer](https://github.com/ds300/react-native-typescript-transformer), we can seamlessly use TypeScript in our project. The source is transparently compiled before being passed to Babel.
+Thanks to the beauty of [react-native-typescript-transformer](https://github.com/ds300/react-native-typescript-transformer), we can seamlessly use TypeScript in our React Native project. Source maps and hot reloading all work just like you would expect.
 
 ## Coding style
 
 We use `tslint` to enforce coding style, with rules based on [Palantir's tslint-react](https://github.com/palantir/tslint-react), 
-with a few changes to accommodate some Ignite quirks. If you install a 
-plugin, your editor can probably automatically fix problems. In VS Code, set `"tslint.autoFixOnSave": true` in your 
+and a few changes to accommodate some Ignite quirks. If you install a plugin, your editor can probably automatically fix problems. 
+In VS Code, set `"tslint.autoFixOnSave": true` in your 
 workspace settings. You can run the linter from the command line. `npm run lint` runs the linter, while `npm run fixcode` tries to autofix problems.
 
 ## Boilerplate walkthrough
 
-Your `App` folder is where most of the goodies are found in an Ignite Next app. Let's walk through them in more detail. Start with `Containers/App.tsx` (described below) and work your way down the walkthrough in order.
+Your `App` folder is where most of the goodies are found in an Ignite app. Let's walk through them in more detail. Start with `Containers/App.tsx` (described below) and work your way down the walkthrough in order.
 
 ### Containers
 
@@ -64,7 +63,6 @@ Containers are (mostly) full screens, although they can be sections of screens o
 * `RootContainer.tsx` - main view of your application. Contains your status bar and navigation component
 * `LaunchScreen.tsx` - this is the first screen shown in your application. It's loaded into the Navigation component
 * `LoginScreen.tsx` - an example login screen. Read the comments in there to learn more!
-* `Styles` - styling for each of the above containers and screens
 
 ### Navigation
 
@@ -75,7 +73,7 @@ Your primary and other navigation components reside here.
 
 ### Components
 
-React components go here...pretty self-explanatory. We won't go through each in detail -- open each file to read the comments and view the code.
+React components go here. We generate these as stateless functional components by default, as recommended by the React team.
 
 ### Storybook
 
@@ -99,7 +97,6 @@ Initialize and configure things here.
 * `DebugConfig.js` - define how you want your debug environment to act. This is a .js file because that's what
 Ignite expects to find.
 * `ReactotronConfig.ts` - configures [Reactotron](https://github.com/infinitered/reactotron) in your project (Note: this [will be extracted](https://github.com/infinitered/ignite/issues/779) into a plugin in the future)
-* `ReduxPersist.ts` - configures Redux Persist (Note: this [will be extracted](https://github.com/infinitered/ignite/issues/780) into a plugin in the future)
 
 ### Fixtures
 
@@ -107,7 +104,7 @@ Contains json files that mimic API responses for quicker development. These are 
 
 ### Redux, Sagas
 
-Contains a preconfigured Redux and Redux-Sagas setup. Review each file carefully to see how Redux interacts with your application.
+Contains a preconfigured Redux and Redux-Sagas setup. Review each file carefully to see how Redux interacts with your application. You will find these in the Reducers and Sagas folders.
 
 _TODO: explain more about Redux & Redux Sagas here_
 
@@ -134,7 +131,17 @@ Helpers for transforming data between API and your application and vice versa. A
 
 ### Tests
 
-This folder (located as a sibling to `App`) contains sample Jest snapshot and unit tests for your application.
+We create Jest tests alongside the components, reducers and sagas. Currently you need to enable this by editing `ignite/ignite.json` and adding `"tests": "jest"`.
+
+### Code generation
+
+Currently, the following code generation commands work properly:
+* `ignite generate component MyComponent` - generates a stateless functional component.
+* `ignite generate container MyContainer` - generates a React.Component, with state and view lifecycle.
+* `ignite generate reducer MyReducer` - generates a set of Redux reducers.
+* `ignite generate saga MySaga` - generates a Redux Saga
+
+The remaining commands have not yet been ported to TypeScript, but will be soon.
 
 ### Further reading
 
@@ -144,4 +151,4 @@ Microsoft created [TypeScript React Native Starter](https://github.com/Microsoft
 
 [React TypeScript Tutorial](https://github.com/DanielRosenwasser/React-TypeScript-Tutorial) is React rather than React Native, but has useful guides.
 
-[This post](http://blog.novanet.no/easy-typescript-with-react-native/) is a good run-through of the [react-native-typescript-transfomer](https://github.com/ds300/react-native-typescript-transformer), which allows us to skip the transpile step that we were using before. Thanks @wormyy for the [heads-up](#1) on this.
+[This post](http://blog.novanet.no/easy-typescript-with-react-native/) is a good run-through of the [react-native-typescript-transfomer](https://github.com/ds300/react-native-typescript-transformer), which allows us to skip the transpile step that we were using before. Thanks @wormyy for the heads-up on this.
