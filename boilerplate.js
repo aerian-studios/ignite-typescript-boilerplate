@@ -92,14 +92,14 @@ async function install (context) {
   // generate some templates
   spinner.text = '▸ generating files'
   const templates = [
-    { template: 'index.ts.ejs', target: 'index.ts' },
-    { template: 'index.js', target: 'index.js' },
+    { template: 'index.js.ejs', target: 'index.js' },
     { template: 'README.md', target: 'README.md' },
     { template: 'ignite.json.ejs', target: 'ignite/ignite.json' },
     { template: '.editorconfig', target: '.editorconfig' },
     { template: '.babelrc', target: '.babelrc' },
     { template: 'tsconfig.json', target: 'tsconfig.json' },
     { template: 'tslint.json', target: 'tslint.json' },
+    { template: 'rn-cli.config.js', target: 'rn-cli.config.js' },
     { template: 'Tests/Setup.tsx.ejs', target: 'Tests/Setup.tsx' },
     { template: 'storybook/storybook.ejs', target: 'storybook/storybook.js' },
     { template: '.env.example', target: '.env.example' }

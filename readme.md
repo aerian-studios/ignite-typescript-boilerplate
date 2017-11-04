@@ -43,11 +43,7 @@ ignite new MyLatestCreation --b ignite-typescript-boilerplate --min
 
 ## Using TypeScript with React Native
 
-React Native can't compile TypeScript directly, so we add a transpilation step which compiles the .tsx files to 
-Javascript, ready for Babel. These are compiled to the `dist` directory. The easiest way to handle 
-this is to tell your IDE to automatically compile TypeScript files. A sample VSCode task is included for this. Alternatively run `npm run watch`.
-You will need to run `npm run copyfiles` once to copy images and fixtures into the `dist` directory. You can then
-run `react-native start` and `react-native run-ios` or `react-native run-android` as usual.
+Thanks to the beauty of [react-native-typescript-transformer](https://github.com/ds300/react-native-typescript-transformer), we can seamlessly use TypeScript in our project. The source is transparently compiled before being passed to Babel.
 
 ## Coding style
 
@@ -146,5 +142,6 @@ A comprehensive guide to best practice with TypeScript in React is [the React Re
 
 Microsoft created [TypeScript React Native Starter](https://github.com/Microsoft/TypeScript-React-Native-Starter), which includes a walkthrough on switching projects to TypeScript.
 
-(React TypeScript Tutorial)[https://github.com/DanielRosenwasser/React-TypeScript-Tutorial] is React rather than React Native, but has useful guides.
+[React TypeScript Tutorial](https://github.com/DanielRosenwasser/React-TypeScript-Tutorial) is React rather than React Native, but has useful guides.
 
+[This post](http://blog.novanet.no/easy-typescript-with-react-native/) is a good run-through of the [react-native-typescript-transfomer](https://github.com/ds300/react-native-typescript-transformer), which allows us to skip the transpile step that we were using before. Thanks @wormyy for the [heads-up](#1) on this.
