@@ -27,6 +27,10 @@ module.exports = async function (context) {
     {
       template: `screen-style.ejs`,
       target: `App/Containers/${screenName}/${screenName}Style.tsx`
+    },
+    {
+      template: 'component-index.ejs',
+      target: `App/Containers/${screenName}/index.ts`
     }
   ]
 

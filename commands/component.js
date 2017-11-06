@@ -26,6 +26,10 @@ module.exports = async function (context) {
       template: 'component-style.ejs',
       target: `App/Components/${name}/${name}Style.ts`
     },
+    {
+      template: 'component-index.ejs',
+      target: `App/Components/${name}/index.ts`
+    },
     tests === 'ava' &&
     {
       template: 'component-test-ava.ejs',
