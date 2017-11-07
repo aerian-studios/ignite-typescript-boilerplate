@@ -1,0 +1,9 @@
+import { storiesOf } from "@storybook/react-native";
+import * as React from "react";
+
+import <%= props.name %> from "./<%= props.name %>";
+
+storiesOf("<%= props.name %>", module)
+  .add("Default", () => (
+    <<%= props.name %> />
+  ));
