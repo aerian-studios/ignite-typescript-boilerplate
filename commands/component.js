@@ -30,6 +30,10 @@ module.exports = async function (context) {
       template: 'component-index.ejs',
       target: `App/Components/${name}/index.ts`
     },
+    {
+      template: 'component-story.ejs',
+      target: `App/Components/${name}/${name}.story.ts`
+    },
     tests === 'ava' &&
     {
       template: 'component-test-ava.ejs',
