@@ -51,9 +51,9 @@ export const failure = (state: Immutable<%= pascalCase(props.name) %>State) =>
 /* ------------- Hookup Reducers To Types ------------- */
 
 export const <%= pascalCase(props.name) %>Reducer = createReducer(INITIAL_STATE, {
-  <%= camelCase(props.name) %>Request: request,
-  <%= camelCase(props.name) %>Success: success,
-  <%= camelCase(props.name) %>Failure: failure,
+  [Types.<%= snakeCase(props.name).toUpperCase() %>_REQUEST]: request,
+  [Types.<%= snakeCase(props.name).toUpperCase() %>_SUCCESS]: success,
+- [Types.<%= snakeCase(props.name).toUpperCase() %>_FAILURE]: failure
 });
 
 export default <%= pascalCase(props.name) %>Reducer;
