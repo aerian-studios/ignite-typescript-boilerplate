@@ -4,7 +4,7 @@
   "license": "MIT",
   "repository": "aerian-studios/ignite-typescript-boilerplate",
   "homepage": "https://github.com/aerian-studios/ignite-typescript-boilerplate",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "files": [
     "boilerplate",
     "commands",
