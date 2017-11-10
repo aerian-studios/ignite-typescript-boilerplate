@@ -1,37 +1,58 @@
 import * as React from "react";
-import { ScrollView, Text } from "react-native";
+import { Alert, Image, Text, TouchableOpacity, View } from "react-native";
 import { connect } from "react-redux";
-// Add Actions - replace 'Your' with whatever your reducer is called :)
-// import YourActions from "../Redux/YourRedux";
+import * as Redux from "redux";
+import { RootState } from "../../Reducers";
+import { Images } from "../../Themes";
+import Metrics from "../../Themes/Metrics";
 
 // Styles
 import styles from "./<%= props.name %>Style";
 
-interface Props {
+/**
+ * The properties passed to the component
+ */
+export interface OwnProps {
+
+}
+/**
+ * The properties mapped from Redux dispatch
+ */
+export interface DispatchProps {
 
 }
 
-interface State {
+/**
+ * The properties mapped from the global state
+ */
+export interface StateProps {
 
 }
 
-class <%= props.name %> extends React.Component<Props, State> {
+/**
+ * The local state
+ */
+export interface State {
 
+}
+
+class <%= props.name %> extends
+  React.Component<StateProps & DispatchProps & OwnProps, State> {
   public render() {
     return (
-      <ScrollView style={styles.container}>
-        <Text><%= props.name %> Container</Text>
-      </ScrollView>
+      <View style={styles.mainContainer}>
+Hello <%= props.name %>
+      </View>
     );
   }
 }
 
-const mapDispatchToProps = (dispatch: any): Props => ({
-
+const mapDispatchToProps = (dispatch: Redux.Dispatch<RootState>): DispatchProps => ({
+  
 });
 
-const mapStateToProps = (state: State): Props => ({
+const mapStateToProps = (state: RootState, ownProps: OwnProps): StateProps => {
+  return {};
+};
 
-});
-
-export default connect(null, mapDispatchToProps)(<%= props.name %>);
+export default connect(mapStateToProps, mapDispatchToProps)(<%= props.name %>) as React.ComponentClass<OwnProps>;
