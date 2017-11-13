@@ -1,5 +1,6 @@
 import * as React from "react";
 import { Alert, Image, Text, TouchableOpacity, View } from "react-native";
+import Icon from "react-native-vector-icons/FontAwesome";
 import { NavigationAction, NavigationDrawerScreenOptions, NavigationScreenProps, NavigationState } from "react-navigation";
 import { connect } from "react-redux";
 import * as Redux from "redux";
@@ -53,7 +54,7 @@ class <%= props.name %> extends
   public render() {
     return (
       <View style={styles.mainContainer}>
-Hello <%= props.name %>
+        <Text>Hello <%= props.name %></Text>
       </View>
     );
   }
