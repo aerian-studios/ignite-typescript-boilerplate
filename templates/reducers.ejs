@@ -53,7 +53,7 @@ export const failure = (state: Immutable<%= pascalCase(props.name) %>State) =>
 export const <%= pascalCase(props.name) %>Reducer = createReducer(INITIAL_STATE, {
   [Types.<%= snakeCase(props.name).toUpperCase() %>_REQUEST]: request,
   [Types.<%= snakeCase(props.name).toUpperCase() %>_SUCCESS]: success,
-- [Types.<%= snakeCase(props.name).toUpperCase() %>_FAILURE]: failure
+  [Types.<%= snakeCase(props.name).toUpperCase() %>_FAILURE]: failure,
 });
 
 export default <%= pascalCase(props.name) %>Reducer;
