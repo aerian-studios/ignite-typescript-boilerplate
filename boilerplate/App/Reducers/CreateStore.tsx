@@ -12,8 +12,9 @@ export default (rootReducer: Reducer<any>, rootSaga: () => SagaIterator) => {
   const enhancers = [];
 
   /* ------------- Analytics Middleware ------------- */
-  middleware.push(ScreenTracking);
-
+  if (Config.useReactotron) {
+    middleware.push(ScreenTracking);
+  }
   /* ------------- Saga Middleware ------------- */
 
   let opts = {};
