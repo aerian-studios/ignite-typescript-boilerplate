@@ -8,15 +8,16 @@ import { getUserAvatar } from "./index";
 const stepper = (fn) => (mock?) => fn.next(mock).value;
 
 test("first calls API", () => {
-  const step = stepper(getUserAvatar(FixtureAPI, {username: "taco"}));
+  const step = stepper(getUserAvatar(FixtureAPI, GithubActions.userRequest({username: "ascorbic"})));
   // first yield is API
-  expect(step()).toEqual(call(FixtureAPI.getUser, "taco"));
+  expect(step()).toEqual(call(FixtureAPI.getUser, "ascorbic"));
 });
 
 test("success path", () => {
-  FixtureAPI.getUser("taco").then((response) => {
+  FixtureAPI.getUser("ascorbic").then((response) => {
 
-    const step = stepper(getUserAvatar(FixtureAPI, { username: "taco" }));
+    // tslint:disable-next-line:max-line-length
+    const step = stepper(getUserAvatar(FixtureAPI, GithubActions.userRequest({username: "ascorbic"})));
     // first step API
     step();
     // Second step successful return
@@ -30,7 +31,7 @@ test("success path", () => {
 
 test("failure path", () => {
   const response = {ok: false};
-  const step = stepper(getUserAvatar(FixtureAPI, {username: "taco"}));
+  const step = stepper(getUserAvatar(FixtureAPI, GithubActions.userRequest({username: "ascorbic"})));
   // first step API
   step();
   // Second step failed response

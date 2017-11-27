@@ -25,8 +25,8 @@ export function * get<%= props.name %> (api: <%= props.name %>Api, action: <%= p
   if (response.ok) {
     // You might need to change the response here - do this with a 'transform',
     // located in ../../Transforms/. Otherwise, just pass the data back from the api.
-    yield put(<%= props.name %>Actions.<%= camelCase(props.name) %>Success(response.data));
+    yield put(<%= props.name %>Actions.success({data: response.data}));
   } else {
-    yield put(<%= props.name %>Actions.<%= camelCase(props.name) %>Failure());
+    yield put(<%= props.name %>Actions.failure());
   }
 }

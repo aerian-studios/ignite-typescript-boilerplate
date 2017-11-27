@@ -3,7 +3,7 @@ import { GithubActions, GithubReducer, INITIAL_STATE } from "./index";
 
 test("request", () => {
   const username = "taco";
-  const state = GithubReducer(INITIAL_STATE, GithubActions.userRequest(username));
+  const state = GithubReducer(INITIAL_STATE, GithubActions.userRequest({username}));
 
   expect(state.fetching).toBe(true);
   expect(state.username).toBe(username);
@@ -12,7 +12,7 @@ test("request", () => {
 
 test("success", () => {
   const avatar = "http://placekitten.com/200/300";
-  const state = GithubReducer(INITIAL_STATE, GithubActions.userSuccess(avatar));
+  const state = GithubReducer(INITIAL_STATE, GithubActions.userSuccess({avatar}));
 
   expect(state.fetching).toBe(false);
   expect(state.avatar).toBe(avatar);

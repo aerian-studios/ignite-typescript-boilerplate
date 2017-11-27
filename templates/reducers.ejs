@@ -1,23 +1,23 @@
-import { Action, Reducer } from "redux";
-import { createActions, createReducer } from "reduxsauce";
+import { Action, AnyAction, Reducer } from "redux";
 import * as SI from "seamless-immutable";
+import { createAction, PayloadAction } from "ts-redux-actions";
+import { mapReducers, ReducerMap } from "../../Lib/ReduxHelpers";
 
 /* ------------- Types and Action Creators ------------- */
+interface <%= pascalCase(props.name) %>SuccessParams {status: boolean}
 
-const { Types, Creators } = createActions({
-  <%= pascalCase(props.name) %>Request: ["data"],
-  <%= pascalCase(props.name) %>Success: ["payload"],
-  <%= pascalCase(props.name) %>Failure: null,
+const actionCreators = {
+  <%= pascalCase(props.name) %>Request: createAction("<%=s nakeCase(props.name).toUpperCase() %>_REQUEST"),
+  <%= pascalCase(props.name) %>Success: (payload: <%= pascalCase(props.name)SuccessParams) => ({type: "<%=s nakeCase(props.name).toUpperCase() %>_SUCCESS", payload})),,
+  <%= pascalCase(props.name) %>Failure: createAction("<%= snakeCase(props.name).toUpperCase() %>_FAILURE"),
 });
 
-export const <%= pascalCase(props.name) %>Types = Types;
-export const <%= pascalCase(props.name) %>Actions = Creators;
+export const <%= pascalCase(props.name) %>Actions = actionCreators;
 
 export interface <%= pascalCase(props.name) %>State {
   data?: string | null;
   error?: boolean | null;
   fetching?: boolean | null;
-  payload?: string | null;
 }
 
 export type <%= pascalCase(props.name) %>Action = <%= pascalCase(props.name) %>State & Action;
@@ -30,7 +30,6 @@ export const INITIAL_STATE: Immutable<%= pascalCase(props.name) %>State = SI.fro
   data: null,
   error: null,
   fetching: null,
-  payload: null,
 });
 
 /* ------------- Reducers ------------- */
@@ -40,20 +39,26 @@ export const request: Reducer<Immutable<%= pascalCase(props.name) %>State> =
   state.merge({ fetching: true, data, payload: null });
 
 export const success: Reducer<Immutable<%= pascalCase(props.name) %>State> =
-(state: Immutable<%= pascalCase(props.name) %>State, action: <%= pascalCase(props.name) %>Action) => {
-  const { data } = action;
+(state: Immutable<%= pascalCase(props.name) %>State, action: AnyAction & {payload?: <%= pascalCase(props.name) %>SuccessParams}) => {
+  if (!action.payload) {
+    return failure(state, action);
+  }
+  const data = action.payload.data;
+  
   return state.merge({ fetching: false, error: null, data });
 };
 
-export const failure = (state: Immutable<%= pascalCase(props.name) %>State) =>
+export const failure: Reducer<Immutable<%= pascalCase(props.name) %>State> = (state: Immutable<%= pascalCase(props.name) %>State) =>
   state.merge({ fetching: false, error: true, data: null });
 
 /* ------------- Hookup Reducers To Types ------------- */
 
-export const <%= pascalCase(props.name) %>Reducer = createReducer(INITIAL_STATE, {
-  [Types.<%= snakeCase(props.name).toUpperCase() %>_REQUEST]: request,
-  [Types.<%= snakeCase(props.name).toUpperCase() %>_SUCCESS]: success,
-  [Types.<%= snakeCase(props.name).toUpperCase() %>_FAILURE]: failure,
-});
+const reducerMap: ReducerMap<typeof actionCreators, Immutable<%= pascalCase(props.name) %>State> = {
+  request,
+  failure,
+  success,
+};
+
+export const <%= pascalCase(props.name) %>Reducer = mapReducers(INITIAL_STATE, reducerMap, actionCreators);
 
 export default <%= pascalCase(props.name) %>Reducer;
