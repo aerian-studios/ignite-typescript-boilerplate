@@ -18,9 +18,6 @@ module.exports = async function (context) {
   const name = pascalCase(parameters.first)
   const props = { name }
 
-  // which type of list in code
-  const typeCodeMessage = 'What coding style do you want for your list?'
-  const typeCodeChoices = ['Flatlist (new)', 'Listview (deprecated)']
 
   // which type of layout?
   const typeMessage = 'What kind of List would you like to generate?'
@@ -37,14 +34,7 @@ module.exports = async function (context) {
 
   // only prompt if type is not defined
   if (!typeCode) {
-    // as question 1
-    const codeAnswers = await context.prompt.ask({
-      name: 'type',
-      type: 'list',
-      message: typeCodeMessage,
-      choices: typeCodeChoices
-    })
-    typeCode = codeAnswers.type === typeCodeChoices[0] ? 'flatlist' : 'listview'
+    typeCode = 'flatlist';
   }
 
   if (!type) {

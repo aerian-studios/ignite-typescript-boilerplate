@@ -30,7 +30,7 @@ const questions = [
     name: 'tests',
     message: 'What test library will you use?',
     type: 'list',
-    choices: ['none', 'jest', 'ava']
+    choices: ['none', 'jest']
   }
 ]
 
