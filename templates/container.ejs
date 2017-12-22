@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Alert, Image, Text, TouchableOpacity, View } from "react-native";
+import { Text, View } from "react-native";
 import { connect } from "react-redux";
 import * as Redux from "redux";
 import { RootState } from "../../Reducers";
@@ -36,8 +36,14 @@ export interface State {
 
 }
 
+type Props = StateProps & DispatchProps & OwnProps;
+
 class <%= props.name %> extends
-  React.Component<StateProps & DispatchProps & OwnProps, State> {
+  React.Component<Props, State> {
+  public state = {
+
+  }
+
   public render() {
     return (
       <View style={styles.mainContainer}>

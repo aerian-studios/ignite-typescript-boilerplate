@@ -38,8 +38,15 @@ export interface State {
 
 }
 
+type Props = StateProps & DispatchProps & OwnProps & NavigationScreenProps<{}>;
+
 class <%= props.name %> extends
-  React.Component<StateProps & DispatchProps & OwnProps & NavigationScreenProps<{}>, State> {
+  React.Component<Props, State> {
+  
+  public state = {
+
+  };
+
   public static navigationOptions: NavigationDrawerScreenOptions = {
     drawerLabel: "Welcome",
     drawerIcon: ({ tintColor, focused }: {tintColor: string, focused: boolean}) => (

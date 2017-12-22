@@ -1,39 +1,29 @@
 import * as React from "react";
 import { View, Text, FlatList } from "react-native";
-import { connect } from "react-redux";
 
 // More info here: https://facebook.github.io/react-native/docs/flatlist.html
 
 // Styles
 import styles from "./<%= props.name %>Style";
 
-class <%= props.name %> extends React.PureComponent {
-  /* ***********************************************************
-  * STEP 1
-  * This is an array of objects with the properties you desire
-  * Usually this should come from Redux mapStateToProps
-  *************************************************************/
-  state = {
-    dataObjects: [
-      {title: 'First Title', description: 'First Description'},
-      {title: 'Second Title', description: 'Second Description'},
-      {title: 'Third Title', description: 'Third Description'},
-      {title: 'Fourth Title', description: 'Fourth Description'},
-      {title: 'Fifth Title', description: 'Fifth Description'},
-      {title: 'Sixth Title', description: 'Sixth Description'},
-      {title: 'Seventh Title', description: 'Seventh Description'}
-    ]
-  }
+export interface RowItem {
+  title: string;
+  description: string;
+}
+interface Props {
+  data: RowItem[];
+}
+
+export default class <%= props.name %> extends React.PureComponent<Props> {
 
   /* ***********************************************************
-  * STEP 2
   * `renderRow` function. How each cell/row should be rendered
   * It's our best practice to place a single component here:
   *
   * e.g.
     return <MyCustomCell title={item.title} description={item.description} />
   *************************************************************/
-  renderRow ({item}) {
+  renderRow ({item}: {item: RowItem}) {
     return (
       <View style={styles.row}>
         <Text style={styles.boldLabel}>{item.title}</Text>
@@ -42,11 +32,6 @@ class <%= props.name %> extends React.PureComponent {
     )
   }
 
-  /* ***********************************************************
-  * STEP 3
-  * Consider the configurations we've set below.  Customize them
-  * to your liking!  Each with some friendly advice.
-  *************************************************************/
   // Render a header?
   renderHeader = () =>
     <Text style={[styles.label, styles.sectionHeader]}> - Header - </Text>
@@ -65,7 +50,7 @@ class <%= props.name %> extends React.PureComponent {
   // The default function if no Key is provided is index
   // an identifiable key is important if you plan on
   // item reordering.  Otherwise index is fine
-  keyExtractor = (item, index) => index
+  keyExtractor = (item: RowItem, index: number) => index
 
   // How many items should be kept im memory as we scroll?
   oneScreensWorth = 20
@@ -89,7 +74,7 @@ class <%= props.name %> extends React.PureComponent {
       <View style={styles.container}>
         <FlatList
           contentContainerStyle={styles.listContent}
-          data={this.state.dataObjects}
+          data={this.props.data}
           renderItem={this.renderRow}
           keyExtractor={this.keyExtractor}
           initialNumToRender={this.oneScreensWorth}
@@ -102,16 +87,3 @@ class <%= props.name %> extends React.PureComponent {
     )
   }
 }
-
-const mapStateToProps = (state) => {
-  return {
-    // ...redux state to props here
-  }
-}
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(<%= props.name %>)

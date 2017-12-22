@@ -1,55 +1,27 @@
 import * as React from "react";
 import { View, SectionList, Text } from "react-native";
-import { connect } from "react-redux";
 
 // More info here: https://facebook.github.io/react-native/docs/sectionlist.html
 
 // Styles
-import styles from './<%= props.name %>Style'
+import styles from "./<%= props.name %>Style";
+
+export interface Section {
+  key: string;
+  data: RowItem[];
+}
+export interface RowItem {
+  title: string;
+  description: string;
+}
+interface Props {
+  data: Section[];
+}
 
 class <%= props.name %> extends React.PureComponent {
-  /* ***********************************************************
-  * STEP 1
-  * This is an array of objects with the properties you desire
-  * Usually this should come from Redux mapStateToProps
-  *************************************************************/
-  state = {
-    data: [
-      {
-        key: 'First',
-        data: [
-          {title: 'First Title', description: 'First Description'},
-          {title: 'Second Title', description: 'Second Description'},
-          {title: 'Third Title', description: 'Third Description'},
-          {title: 'Fourth Title', description: 'Fourth Description'},
-          {title: 'Fifth Title', description: 'Fifth Description'},
-          {title: 'Sixth Title', description: 'Sixth Description'},
-          {title: 'Seventh Title', description: 'Seventh Description'},
-          {title: 'Eighth Title', description: 'Eighth Description'},
-          {title: 'Ninth Title', description: 'Ninth Description'},
-          {title: 'Tenth Title', description: 'Tenth Description'}
-        ]
-      }, {
-        key: 'Second',
-        data: [
-          {title: 'Eleventh Title', description: 'Eleventh Description'},
-          {title: '12th Title', description: '12th Description'},
-          {title: '13th Title', description: '13th Description'},
-          {title: '14th Title', description: '14th Description'},
-          {title: '15th Title', description: '15th Description'},
-          {title: '16th Title', description: '16th Description'},
-          {title: '17th Title', description: '17th Description'},
-          {title: '18th Title', description: '18th Description'},
-          {title: '19th Title', description: '19th Description'},
-          {title: '20th Title', description: '20th Description'},
-          {title: 'BLACKJACK!', description: 'BLACKJACK! Description'}
-        ]
-      }
-    ]
-  }
+
 
   /* ***********************************************************
-  * STEP 3
   * `renderItem` function - How each cell should be rendered
   * It's our best practice to place a single component here:
   *
@@ -62,7 +34,7 @@ class <%= props.name %> extends React.PureComponent {
   *
   * Note: You can remove section/separator functions and jam them in here
   *************************************************************/
-  renderItem ({section, item}) {
+  renderItem ({section, item}: {section: Section, item: RowItem}) {
     return (
       <View style={styles.row}>
         <Text style={styles.boldLabel}>Section {section.key} - {item.title}</Text>
@@ -72,9 +44,9 @@ class <%= props.name %> extends React.PureComponent {
   }
 
   // Conditional branching for section headers, also see step 3
-  renderSectionHeader ({section}) {
+  renderSectionHeader ({section}: {section: Section}) {
     switch (section.key) {
-      case 'First':
+      case "First":
         return <View style={styles.sectionHeader}><Text style={styles.boldLabel}>First Section</Text></View>
       default:
         return <View style={styles.sectionHeader}><Text style={styles.boldLabel}>Second Section</Text></View>
@@ -82,7 +54,6 @@ class <%= props.name %> extends React.PureComponent {
   }
 
   /* ***********************************************************
-  * STEP 2
   * Consider the configurations we've set below.  Customize them
   * to your liking!  Each with some friendly advice.
   *
@@ -137,9 +108,9 @@ class <%= props.name %> extends React.PureComponent {
       <View style={styles.container}>
         <SectionList
           renderSectionHeader={this.renderSectionHeader}
-          sections={this.state.data}
+          sections={this.props.data}
           contentContainerStyle={styles.listContent}
-          data={this.state.dataObjects}
+          data={this.props.data}
           renderItem={this.renderItem}
           keyExtractor={this.keyExtractor}
           initialNumToRender={this.oneScreensWorth}
@@ -154,16 +125,3 @@ class <%= props.name %> extends React.PureComponent {
     )
   }
 }
-
-const mapStateToProps = (state) => {
-  return {
-    // ...redux state to props here
-  }
-}
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(<%= props.name %>)
