@@ -1,19 +1,19 @@
-import { <%= props.name %>Actions, <%= props.name %>Reducer as reducer, INITIAL_STATE } from "./<%= props.name %>Reducers";
+import <%= props.name %>Actions, <%= props.name %>Reducer as reducer, INITIAL_STATE from "./<%= props.name %>Reducers";
 
-it('attempt', () => {
-  const state = reducer(INITIAL_STATE, Actions.<%= camelCase(props.name) %>Request('data'))
+it("attempt", () => {
+  const state = reducer(INITIAL_STATE, <%= props.name %>Actions.request('data'))
 
   expect(state.fetching).toBe(true)
 })
 
-it('success', () => {
-  const state = reducer(INITIAL_STATE, Actions.<%= camelCase(props.name) %>Success('hi'))
+it("success", () => {
+  const state = reducer(INITIAL_STATE, <%= props.name %>Actions.success('hi'))
 
   expect(state.payload).toBe('hi')
 })
 
-it('failure', () => {
-  const state = reducer(INITIAL_STATE, Actions.<%= camelCase(props.name) %>Failure())
+it("failure", () => {
+  const state = reducer(INITIAL_STATE, <%= props.name %>Actions.failure())
 
   expect(state.fetching).toBe(false)
   expect(state.error).toBe(true)

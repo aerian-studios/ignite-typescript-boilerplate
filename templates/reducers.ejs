@@ -7,9 +7,9 @@ import { mapReducers, ReducerMap } from "../../Lib/ReduxHelpers";
 interface <%= pascalCase(props.name) %>SuccessParams {status: boolean}
 
 const actionCreators = {
-  <%= pascalCase(props.name) %>Request: createAction("<%= snakeCase(props.name).toUpperCase() %>_REQUEST"),
-  <%= pascalCase(props.name) %>Success: (payload: <%= pascalCase(props.name) %>SuccessParams)  => ({type: "<%= snakeCase(props.name).toUpperCase() %>_SUCCESS", payload})),
-  <%= pascalCase(props.name) %>Failure: createAction("<%= snakeCase(props.name).toUpperCase() %>_FAILURE"),
+  request: createAction("<%= snakeCase(props.name).toUpperCase() %>_REQUEST"),
+  success: (payload: <%= pascalCase(props.name) %>SuccessParams)  => ({type: "<%= snakeCase(props.name).toUpperCase() %>_SUCCESS", payload})),
+  failure: createAction("<%= snakeCase(props.name).toUpperCase() %>_FAILURE"),
 });
 
 export const <%= pascalCase(props.name) %>Actions = actionCreators;
