@@ -1,4 +1,4 @@
-import { createAction } from "ts-redux-actions";
+import { createAction } from "typesafe-actions";
 
 /* ------------- Types and Action Creators ------------- */
 

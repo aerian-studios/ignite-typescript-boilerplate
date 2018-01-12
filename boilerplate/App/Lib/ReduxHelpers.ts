@@ -1,8 +1,10 @@
 import { ActionCreator, AnyAction, Reducer, ReducersMapObject } from "redux";
-import { createAction, EmptyAction, PayloadAction } from "ts-redux-actions";
+import { createAction, EmptyAction, FluxStandardAction, getType, PayloadAction, TypeGetter } from "typesafe-actions";
 
-type ActionMap<T> = {
-    readonly [P in keyof T]: PayloadAction<string, any> | EmptyAction<string>;
+export type FluxActionCreator<T extends string, AC extends (...args: any[]) => FluxStandardAction<T> = any> = AC & TypeGetter<T>;
+
+type ActionCreatorMap<T> = {
+    readonly [P in keyof T]: FluxActionCreator<P>;
 };
 
 export type ReducerMap<A, S> = {
@@ -12,9 +14,9 @@ export type ReducerMap<A, S> = {
 export function mapReducers<S, R extends ReducersMapObject>(
     initialState: S,
     reducers: R,
-    actions: ActionMap<R>): Reducer<S> {
-    const reducerMap = new Map(Object.entries(actions).map(([key, val]): [string, Reducer<any>] =>
-        [val.type, reducers[key]]));
+    actionCreators: ActionCreatorMap<R>): Reducer<S> {
+    const reducerMap = new Map(Object.entries(actionCreators).map(([key, val]): [string, Reducer<any>] =>
+        [getType(val), reducers[key]]));
 
     return (state: S = initialState, action: AnyAction) => {
         if (!("type" in action)) {
