@@ -1,6 +1,6 @@
 import { Action, AnyAction, Reducer } from "redux";
 import * as SI from "seamless-immutable";
-import { createAction, PayloadAction } from "ts-redux-actions";
+import { createAction, PayloadAction } from "typesafe-actions";
 import { mapReducers, ReducerMap } from "../../Lib/ReduxHelpers";
 
 /* ------------- Types and Action Creators ------------- */

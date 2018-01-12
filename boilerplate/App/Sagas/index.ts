@@ -1,12 +1,14 @@
 import { all, takeLatest } from "redux-saga/effects";
+import { getType } from "typesafe-actions";
+
 import DebugConfig from "../Config/DebugConfig";
 import FixtureAPI from "../Services/FixtureApi";
 import {createAPI, GithubApi} from "../Services/GithubApi";
 
 /* ------------- Types ------------- */
 
-import { GithubTypes } from "../Reducers/GithubReducers";
-import { StartupTypes } from "../Reducers/StartupReducers";
+import { GithubActions } from "../Reducers/GithubReducers";
+import { StartupActions } from "../Reducers/StartupReducers";
 
 /* ------------- Sagas ------------- */
 
@@ -24,9 +26,9 @@ const api = DebugConfig.useFixtures ? FixtureAPI : createAPI();
 export default function * root() {
   yield all([
     // some sagas only receive an action
-    takeLatest(StartupTypes.STARTUP, startup),
+    takeLatest(getType(StartupActions.startup), startup),
 
     // some sagas receive extra parameters in addition to an action
-    takeLatest(GithubTypes.USER_REQUEST, getUserAvatar, api),
+    takeLatest(getType(GithubActions.userRequest), getUserAvatar, api),
   ]);
 }

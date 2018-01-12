@@ -47,9 +47,9 @@
     "seamless-immutable": "^7.1.2",
     "sinon": "^2.3.1",
     "tempy": "^0.1.0",
-    "ts-redux-actions": "^1.0.0-beta5",
     "tslint": "^5.8.0",
     "tslint-react": "^3.2.0",
+    "typesafe-actions": "^1.1.2",
     "typescript": "^2.6.1"
   },
   "dependencies": {
