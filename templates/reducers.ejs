@@ -1,16 +1,16 @@
 import { Action, AnyAction, Reducer } from "redux";
 import * as SI from "seamless-immutable";
-import { createAction, PayloadAction } from "ts-redux-actions";
+import { createAction, PayloadAction } from "typesafe-actions";
 import { mapReducers, ReducerMap } from "../../Lib/ReduxHelpers";
 
 /* ------------- Types and Action Creators ------------- */
-interface <%= pascalCase(props.name) %>SuccessParams {status: boolean}
+interface <%= pascalCase(props.name) %>SuccessParams {data: string; }
 
 const actionCreators = {
   request: createAction("<%= snakeCase(props.name).toUpperCase() %>_REQUEST"),
   success: (payload: <%= pascalCase(props.name) %>SuccessParams)  => ({type: "<%= snakeCase(props.name).toUpperCase() %>_SUCCESS", payload})),
   failure: createAction("<%= snakeCase(props.name).toUpperCase() %>_FAILURE"),
-});
+};
 
 export const <%= pascalCase(props.name) %>Actions = actionCreators;
 
@@ -20,7 +20,7 @@ export interface <%= pascalCase(props.name) %>State {
   fetching?: boolean | null;
 }
 
-export type <%= pascalCase(props.name) %>Action = <%= pascalCase(props.name) %>State & Action;
+export type <%= pascalCase(props.name) %>Action = PayloadAction<string, <%= pascalCase(props.name) %>State>;
 
 export type Immutable<%= pascalCase(props.name) %>State = SI.ImmutableObject<<%= pascalCase(props.name) %>State>;
 
@@ -35,15 +35,15 @@ export const INITIAL_STATE: Immutable<%= pascalCase(props.name) %>State = SI.fro
 /* ------------- Reducers ------------- */
 
 export const request: Reducer<Immutable<%= pascalCase(props.name) %>State> =
-(state: Immutable<%= pascalCase(props.name) %>State, { data }: <%= pascalCase(props.name) %>Action) =>
-  state.merge({ fetching: true, data, payload: null });
+(state: Immutable<%= pascalCase(props.name) %>State) =>
+  state.merge({ fetching: true });
 
 export const success: Reducer<Immutable<%= pascalCase(props.name) %>State> =
 (state: Immutable<%= pascalCase(props.name) %>State, action: AnyAction & {payload?: <%= pascalCase(props.name) %>SuccessParams}) => {
   if (!action.payload) {
     return failure(state, action);
   }
-  const data = action.payload.data;
+  const { data } = action.payload;
   
   return state.merge({ fetching: false, error: null, data });
 };
