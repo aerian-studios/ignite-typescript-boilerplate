@@ -35,13 +35,38 @@ async function install (context) {
     template
   } = context
   const { colors } = print
-  const { red, yellow, bold, gray, blue } = colors
+  const { red, yellow, bold, gray, blue, green } = colors
 
   const perfStart = (new Date()).getTime()
 
   const name = parameters.third
+  const logo = red(`
+              '-:+osssssssso+:-'                
+            -/ssssssssssssssssssss/-             
+        '/ssssssssssssssssssssssssss/'          
+      '/ssssssssssssssssssssssssssssss/'        
+      -ssssssssssssssssssssssssssssssssss-       
+    /sssssssssssssssssssss:'sssssssssssss:      
+    :ssssssssssssssssssss:'  ssssssssssssss:     
+  .sssssssssssssssssss:'    sssssssssssssss.    
+  +sssssssssssssssss:'      sssssssssssssss+    
+  ssssssssssssssss:'        ssssssssssssssss    
+  'ssssssssssssss+'          ssssssssssssssss    
+  ssssssssssss+:::-'        ssssssssssssssss    
+  +sssssssss+:::::::-'      sssssssssssssss+    
+  .ssssssssooooooooooo:'    :..../sssssssss.    
+    :ssssssssssssssssssss:'  -  -osssssssss:     
+    /sssssssssssssssssssss:'--ossssssssss:      
+      -ssssssssssssssssssssssssssssssssss-       
+      '/ssssssssssssssssssssssssssssss/'        
+        '/ssssssssssssssssssssssssss/'          
+            -/ssssssssssssssssssss/-             
+              '-:+oossssssoo+:-'                
+                                                
+  `) + green(`🌳   Crafted with care in the Cotswolds.  🌳`);
+  print.info(logo)
   const spinner = print
-    .spin(`using the TypeScript boilerplate. You might want to make a cuppa while we get this ready. ☕️`)
+    .spin(`using the TypeScript boilerplate from Aerian Studios. You might want to make a cuppa while we get this ready. ☕️`)
     .succeed()
 
   // attempt to install React Native or die trying
@@ -240,12 +265,11 @@ async function install (context) {
       react-native run-android${androidInfo}
       ignite --help
 
-    ${gray('Read the walkthrough at https://github.com/infinitered/ignite-ir-boilerplate/blob/master/readme.md#boilerplate-walkthrough')}
-
-    ${blue('Need additional help? Join our Slack community at http://community.infinite.red.')}
+    ${gray('Read the walkthrough at https://github.com/aerian-studios/ignite-typescript-boilerplate/blob/master/readme.md#boilerplate-walkthrough')}
 
     ${bold('Now get cooking! 🍽')}
   `
+
 
   print.info(successMessage)
 }
