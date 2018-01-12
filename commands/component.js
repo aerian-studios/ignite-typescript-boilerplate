@@ -32,7 +32,7 @@ module.exports = async function (context) {
     },
     {
       template: 'component-story.ejs',
-      target: `App/Components/${name}/${name}.story.ts`
+      target: `App/Components/${name}/${name}.story.tsx`
     },
     tests === 'ava' &&
     {
