@@ -8,7 +8,7 @@ A port of the [Ignite IR Boilerplate](https://github.com/infinitered/ignite-ir-b
 
 Currently includes:
 
-* React Native 0.47.2 (but you can change this if you want to experiment)
+* React Native 0.51.0 (but you can change this if you want to experiment)
 * React Navigation
 * Redux
 * Redux Sagas
@@ -137,11 +137,11 @@ We create Jest tests alongside the components, reducers and sagas. Currently you
 
 Currently, the following code generation commands work properly:
 * `ignite generate component MyComponent` - generates a stateless functional component.
-* `ignite generate container MyContainer` - generates a React.Component, with state and view lifecycle.
-* `ignite generate reducer MyReducer` - generates a set of Redux reducers.
+* `ignite generate container MyContainer` - generates a Redux-connected React.Component, with state and view lifecycle.
+* `ignite generate screen MyScreen` - generates a Redux-connected React.Component, with state, view lifecycle and react-navigation.
+* `ignite generate reducers MyNew` - generates a set of Redux reducers.
 * `ignite generate saga MySaga` - generates a Redux Saga
 
-The remaining commands have not yet been ported to TypeScript, but will be soon.
 
 ### Further reading
 
