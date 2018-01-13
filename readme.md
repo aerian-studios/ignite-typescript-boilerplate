@@ -1,6 +1,6 @@
 # Ignite TypeScript Boilerplate
 
-Get up and running with TypeScript React Native development in a 
+Get up and running with TypeScript React Native development in moments.
 
 ## The great taste of Ignite, now in TypeScript
 
