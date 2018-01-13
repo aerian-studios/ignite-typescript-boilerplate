@@ -39,7 +39,7 @@ export function * startup(action?: Action): SagaIterator {
   const avatar = yield select(selectAvatar);
   // only get if we don't have it yet
   if (!is(String, avatar)) {
-    yield put(GithubActions.userRequest("GantMan"));
+    yield put(GithubActions.userRequest({username: "ascorbic"}));
   }
 
 }
