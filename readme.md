@@ -104,9 +104,9 @@ Contains json files that mimic API responses for quicker development. These are 
 
 ### Redux, Sagas
 
-Contains a preconfigured Redux and Redux-Sagas setup. Review each file carefully to see how Redux interacts with your application. You will find these in the Reducers and Sagas folders.
-
-_TODO: explain more about Redux & Redux Sagas here_
+Contains a preconfigured Redux and Redux-Sagas setup. Review each file carefully to see how Redux interacts with your application. You will find these in the Reducers and Sagas folders. We use [typesafe-actions](https://github.com/piotrwitek/typesafe-actions) to get lovely
+type checking of our reducers and actions. Take a look at `Lib/ReduxHelpers.ts` for some extra functions that
+we use to make them more Ignite-y.
 
 ### Services
 
@@ -145,7 +145,7 @@ Currently, the following code generation commands work properly:
 
 ### Further reading
 
-A comprehensive guide to best practice with TypeScript in React is [the React Redux TypeScript Guide](https://github.com/piotrwitek/react-redux-typescript-guide), which covers a lot more than just Redux. We have adopted a lot of the patterns from this.
+A comprehensive guide to best practice with TypeScript in React is [the React Redux TypeScript Guide](https://github.com/piotrwitek/react-redux-typescript-guide), which covers a lot more than just Redux. We have adopted a lot of the patterns from this. The `typesafe-actions` library that we use was created by @piotrwitek, the author of the guide.
 
 Microsoft created [TypeScript React Native Starter](https://github.com/Microsoft/TypeScript-React-Native-Starter), which includes a walkthrough on switching projects to TypeScript.
 
