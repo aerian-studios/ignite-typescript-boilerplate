@@ -7,7 +7,6 @@ const stepper = (fn) => (mock) => fn.next(mock).value;
 
 test("watches for the right action", () => {
   const step = stepper(startup());
-  GithubActions.userRequest({username: "GantMan"});
   expect(step()).toEqual(select(selectAvatar));
-  expect(step()).toEqual(put(GithubActions.userRequest({username: "GantMan"})));
+  expect(step()).toEqual(put(GithubActions.userRequest({username: "ascorbic"})));
 });
