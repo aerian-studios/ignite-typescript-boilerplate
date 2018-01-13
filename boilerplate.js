@@ -41,29 +41,42 @@ async function install (context) {
 
   const name = parameters.third
   const logo = red(`
-              '-:+osssssssso+:-'                
-            -/ssssssssssssssssssss/-             
-        '/ssssssssssssssssssssssssss/'          
-      '/ssssssssssssssssssssssssssssss/'        
-      -ssssssssssssssssssssssssssssssssss-       
-    /sssssssssssssssssssss:'sssssssssssss:      
-    :ssssssssssssssssssss:'  ssssssssssssss:     
-  .sssssssssssssssssss:'    sssssssssssssss.    
-  +sssssssssssssssss:'      sssssssssssssss+    
-  ssssssssssssssss:'        ssssssssssssssss    
-  'ssssssssssssss+'          ssssssssssssssss    
-  ssssssssssss+:::-'        ssssssssssssssss    
-  +sssssssss+:::::::-'      sssssssssssssss+    
-  .ssssssssooooooooooo:'    :..../sssssssss.    
-    :ssssssssssssssssssss:'  -  -osssssssss:     
-    /sssssssssssssssssssss:'--ossssssssss:      
-      -ssssssssssssssssssssssssssssssssss-       
-      '/ssssssssssssssssssssssssssssss/'        
-        '/ssssssssssssssssssssssssss/'          
-            -/ssssssssssssssssssss/-             
-              '-:+oossssssoo+:-'                
-                                                
-  `) + green(`🌳   Crafted with care in the Cotswolds.  🌳`);
+
+
+                -aeaeaeaeaeae—             
+            -eaeaeaeaeaeaeaeaeaeae-            
+         /aeaeaeaeaeaeaeaeaeaeaeaeae\\         
+       /aeaeaeaeaeaeaeaeaeaeaeaeaeaeae\\       
+     /eaeaeaeaeaeaeaeaeaeaeaeaeaeaeaeaea\\       
+    /aeaeaeaeaeaeaeaeaeaea/ |aeaeaeaeaeae\\      
+   /aaeaeaeaeaeaeaeaeaeae/  |aeaeaeaeaeaea\\     
+   aeaeaeaeaeaeaeaeaeae/    |eaeaeaeaeaeaea    
+  |aeaeaeaeaeaeaeaeae/      |eaeaeaeaeaeaea|    
+  aeaeaeaeaeaeaeaea/        |eaeaeaeaeaeaeae    
+  eaeaeaeaeaeaeae/`) + yellow(`:`) + red(`\\        |aeaeaeaeaeaeaea    
+  aeaeaeaeaeaea/`) + yellow(`::::`) + red(`\\       |eaeaeaeaeaeaeae    
+  |aeaeaeaeae/`) + yellow(`:::::::`) + red(`\\      |eaeaeaeaeaeaea|    
+   aeaeaeaeaeaeaeaeaea\\     |`) + yellow(`::::`) + red(`/aeaeaeaea   
+   \\eaeaeaeaeaeaeaeaeaea\\   |`) + yellow(`:::`) + red(`/aeaeaeaea/     
+    \\aeaeaeaeaeaeaeaeaeae\\  |`) + yellow(`::`) + red(`/aeaeaeaea/      
+     \\aeaeaeaeaeaeaeaeaeae\\ |`) + yellow(`:`) + red(`/eaeeaeaea/       
+       \\aeaeaeaeaeaeaeaeaea\\|/aeaeaeae/       
+         \\aeaeaeaeaeaeaeaeaeaeaeaeae/         
+            -eaeaeaeaeaeaeaeaeaeae-            
+                -aeaeaeaeaeae—      
+
+           __ _  ___ _ __ _  __ _ _ __  
+          / _' |/ _ \\ '__| |/ _' | '_ \\ 
+         | (_| |  __/ |  | | (_| | | | |
+          \\__,_|\\___|_|  |_|\\__,_|_| |_|
+
+`) + green(`
+    🌳   Crafted with care in the Cotswolds.  🌳`) + yellow(`
+
+                https://aerian.com/    
+
+`);
+  
   print.info(logo)
   const spinner = print
     .spin(`using the TypeScript boilerplate from Aerian Studios. You might want to make a cuppa while we get this ready. ☕️`)
