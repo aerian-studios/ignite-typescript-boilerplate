@@ -1,6 +1,6 @@
 # Ignite TypeScript Boilerplate
 
-This is a work in progress, but is enough to get started with React Native development in TypeScript.
+Get up and running with TypeScript React Native development in a 
 
 ## The great taste of Ignite, now in TypeScript
 
@@ -16,7 +16,7 @@ Currently includes:
 
 ## Quick Start
 
-When you've installed the [Ignite CLI](https://github.com/infinitered/ignite), you can get started with this boilerplate like this:
+When you've installed the [Ignite CLI](https://github.com/infinitered/ignite), (tl;dr: `npm install -g ignite-cli`) you can get started with this boilerplate like this:
 
 ```
 ignite new MyLatestCreation --b ignite-typescript-boilerplate
