@@ -1,10 +1,8 @@
-# Ignite TypeScript Boilerplate
+## Ignite TypeScript Boilerplate for React Native
 
-Get up and running with TypeScript React Native development in moments.
-
-## The great taste of Ignite, now in TypeScript
-
-A port of the [Ignite IR Boilerplate](https://github.com/infinitered/ignite-ir-boilerplate) to TypeScript.
+### The easiest way to develop React Native apps in TypeScript.
+Get up and running with TypeScript React Native development in minutes. A batteries-included, opinionated starter project, and code generators for your components, reducers, sagas and more. 
+Originally based on a port of the [Ignite IR Boilerplate](https://github.com/infinitered/ignite-ir-boilerplate) to TypeScript.
 
 Currently includes:
 
@@ -18,7 +16,7 @@ Currently includes:
 
 When you've installed the [Ignite CLI](https://github.com/infinitered/ignite), (tl;dr: `npm install -g ignite-cli`) you can get started with this boilerplate like this:
 
-```
+```sh
 ignite new MyLatestCreation --b ignite-typescript-boilerplate
 ```
 
@@ -55,14 +53,17 @@ workspace settings. You can run the linter from the command line. `npm run lint`
 
 Your `App` folder is where most of the goodies are found in an Ignite app. Let's walk through them in more detail. Start with `Containers/App.tsx` (described below) and work your way down the walkthrough in order.
 
+### Components
+
+React components go here. We generate these as stateless functional components by default, as recommended by the React team.
+
 ### Containers
 
-Containers are (mostly) full screens, although they can be sections of screens or application containers.
+Containers are Redux-connected components, and are mostly full screens.
 
 * `App.tsx` - your main application. We create a Redux store and configure it here
 * `RootContainer.tsx` - main view of your application. Contains your status bar and navigation component
 * `LaunchScreen.tsx` - this is the first screen shown in your application. It's loaded into the Navigation component
-* `LoginScreen.tsx` - an example login screen. Read the comments in there to learn more!
 
 ### Navigation
 
@@ -71,13 +72,9 @@ Your primary and other navigation components reside here.
 * `AppNavigation.tsx` - loads in your initial screen and creates your menu(s) in a StackNavigation
 * `Styles` - styling for the navigation
 
-### Components
-
-React components go here. We generate these as stateless functional components by default, as recommended by the React team.
-
 ### Storybook
 
-[Storybook](https://storybook.js.org/) has been setup to show off components in the different states. Storybook is a great way to develop and test components outside of use in your app. Simply run `npm run storybook` to get started. All stores are contained in the `*.story.tsx` files along side the components.
+[Storybook](https://storybook.js.org/) has been setup to show off components in the different states. Storybook is a great way to develop and test components outside of use in your app. Simply run `yarn run storybook` to get started. All stories are contained in the `*.story.tsx` files along side the components.
 
 ### Themes
 
@@ -131,7 +128,7 @@ Helpers for transforming data between API and your application and vice versa. A
 
 ### Tests
 
-We create Jest tests alongside the components, reducers and sagas. Currently you need to enable this by editing `ignite/ignite.json` and adding `"tests": "jest"`.
+We create Jest tests alongside the components, reducers and sagas. Enable this by adding `"tests": "jest"` to `ignite/ignite.json`.
 
 ### Code generation
 
@@ -141,7 +138,7 @@ Currently, the following code generation commands work properly:
 * `ignite generate screen MyScreen` - generates a Redux-connected React.Component, with state, view lifecycle and react-navigation.
 * `ignite generate reducers MyNew` - generates a set of Redux reducers.
 * `ignite generate saga MySaga` - generates a Redux Saga
-
+* `ignite generate list MyList` - generates a FlatList, formatted either as a grid or list.
 
 ### Further reading
 
@@ -151,4 +148,7 @@ Microsoft created [TypeScript React Native Starter](https://github.com/Microsoft
 
 [React TypeScript Tutorial](https://github.com/DanielRosenwasser/React-TypeScript-Tutorial) is React rather than React Native, but has useful guides.
 
-[This post](http://blog.novanet.no/easy-typescript-with-react-native/) is a good run-through of the [react-native-typescript-transfomer](https://github.com/ds300/react-native-typescript-transformer), which allows us to skip the transpile step that we were using before. Thanks @wormyy for the heads-up on this.
+[This post](http://blog.novanet.no/easy-typescript-with-react-native/) is a good run-through of the [react-native-typescript-transfomer](https://github.com/ds300/react-native-typescript-transformer), which allows us to skip the transpile step that we were using before. Thanks [@wormyy] for the heads-up on this.
+
+### Credits
+Created by [Matt Kane](https://github.com/ascorbic) at [Aerian Studios](https://www.aerian.com). Based on [Ignite IR Boilerplate](https://github.com/infinitered/ignite-ir-boilerplate), by Infinite Red. 
